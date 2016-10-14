@@ -7,7 +7,7 @@ In this project, you will use what you've learned about deep neural networks and
 
 ## Software Requirements
 
-This project uses the following Python libraries:
+This project requires **Python 3.5** and the following Python libraries installed:
 
 - [Juypyter](http://jupyter.org/)
 - [NumPy](http://www.numpy.org/)
@@ -42,7 +42,7 @@ Linux:  `conda install -c https://conda.anaconda.org/prkrekel pygame`
 ## Starting the Project
 
 1. Download the dataset (2 options)
-    - You can download the pickled dataset in which we've already resized the images to 32x32 [here]().
+    - You can download the pickled dataset in which we've already resized the images to 32x32 [here](https://drive.google.com/drive/folders/0B76KYRlYCyRzYjItVFU4aV91b2c).
     - (Optional). You could also download the dataset in its original format by following the instructions [here](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). We've included the notebook we used to preprocess the data [here](./Process-Traffic-Signs.ipynb).
 
 2. Clone the project and start the notebook.
