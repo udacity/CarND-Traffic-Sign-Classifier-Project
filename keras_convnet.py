@@ -9,9 +9,9 @@ from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D, GlobalAveragePooling2D
 from keras.layers import Activation, Dropout, Dense, ELU, BatchNormalization
 
-with open('data/train.p', mode='rb') as f:
+with open('train.p', mode='rb') as f:
     train = pickle.load(f)
-with open('data/test.p', mode='rb') as f:
+with open('test.p', mode='rb') as f:
     test = pickle.load(f)
 
 X_train, X_val, y_train, y_val = train_test_split(train['features'], train['labels'], test_size=0.33, random_state=0)
