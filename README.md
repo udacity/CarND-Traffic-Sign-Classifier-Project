@@ -23,17 +23,6 @@ In addition to the above, for those optionally seeking to use image processing s
    - [PyGame subreddit](https://www.reddit.com/r/pygame/)
 - [OpenCV](http://opencv.org/)
 
-You will also need to have software installed to run and execute a [Jupyter Notebook](http://ipython.org/notebook.html).
-
-In addition to the above, for those optionally seeking to use image processing software, you may need one of the following:
-- [PyGame](http://pygame.org/)
-   - Helpful links for installing PyGame:
-   - [Getting Started](https://www.pygame.org/wiki/GettingStarted)
-   - [PyGame Information](http://www.pygame.org/wiki/info)
-   - [Google Group](https://groups.google.com/forum/#!forum/pygame-mirror-on-google-groups)
-   - [PyGame subreddit](https://www.reddit.com/r/pygame/)
-- [OpenCV](http://opencv.org/)
-
 For those optionally seeking to deploy an Android application:
 - Android SDK & NDK (see this [README](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/README.md))
 
