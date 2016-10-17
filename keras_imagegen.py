@@ -9,8 +9,8 @@ TODO: see if extra training data (ImageDataGenerator) helps accuracy
 import pickle
 from sklearn.model_selection import train_test_split
 from keras.models import Sequential
-from keras.layers import Convolution2D, MaxPooling2D
-from keras.layers import Activation, Dropout, Flatten, Dense, ELU, BatchNormalization
+from keras.layers import Convolution2D, MaxPooling2D, GlobalAveragePooling2D
+from keras.layers import Activation, Dropout, Dense, ELU, BatchNormalization
 from keras.preprocessing.image import ImageDataGenerator
 
 with open('./data/train.p', mode='rb') as f:
@@ -38,21 +38,21 @@ input_shape = X_train.shape[1:]
 
 model = Sequential()
 model.add(Convolution2D(32, 3, 3, input_shape=input_shape))
-model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(BatchNormalization())
 model.add(ELU())
+model.add(MaxPooling2D(pool_size=(2, 2)))
 
 model.add(Convolution2D(32, 3, 3))
-model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(BatchNormalization())
 model.add(ELU())
+model.add(MaxPooling2D(pool_size=(2, 2)))
 
 model.add(Convolution2D(64, 3, 3))
-model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(BatchNormalization())
 model.add(ELU())
+model.add(MaxPooling2D(pool_size=(2, 2)))
 
-model.add(Flatten())
+model.add(GlobalAveragePooling2D())
 model.add(Dense(512))
 model.add(Dropout(.8))
 model.add(ELU())
@@ -87,26 +87,3 @@ model.fit_generator(
 model.save('convnet.h5')
 _, acc = model.evaluate(X_test, y_test, verbose=0)
 print("Testing accuracy =", acc)
-
-
-# LeNet (I think?)
-
-# model = Sequential()
-
-# model.add(Convolution2D(6, 5, 5, border_mode='valid', input_shape = (32, 32, 1)))
-# model.add(MaxPooling2D(pool_size=(2, 2)))
-# model.add(BatchNormalization())
-# model.add(Activation("relu"))
-
-# model.add(Convolution2D(16, 5, 5, border_mode='valid'))
-# model.add(MaxPooling2D(pool_size=(2, 2)))
-# model.add(BatchNormalization())
-# model.add(Activation("relu"))
-
-# model.add(Convolution2D(120, 1, 1, border_mode='valid'))
-
-# model.add(Flatten())
-# model.add(Dense(84))
-# model.add(Activation("relu"))
-# model.add(Dense(10))
-# model.add(Activation('softmax'))
