@@ -63,8 +63,10 @@ with tf.Session() as sess:
 			sess.run([loss_op, train_op], feed_dict={features: X_batch, labels: y_batch})
 
 		val_loss, val_acc = sess.run([loss_op, accuracy], feed_dict={features: X_val, labels: y_val})
-		print("Validation	Loss =", val_loss)
-		print("Validation	Accuracy =", val_acc)
+        print("Epoch", i+1)
+        print("Validation Loss =", val_loss)
+        print("Validation Accuracy =", val_acc)
+        print("")
 		
 	test_loss, test_acc = sess.run([loss_op, accuracy], feed_dict={features: X_test, labels: y_test})
 	print("Testing	Loss =", test_loss)
