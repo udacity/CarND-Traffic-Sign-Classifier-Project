@@ -87,9 +87,12 @@ Here is an example of a [published baseline model on this problem](http://yann.l
 
 Take several pictures of numbers that you find around you (at least five), and run them through your classifier on your computer to produce example results. Alternatively (optionally), you can try using OpenCV / SimpleCV / Pygame to capture live images from a webcam and run those through your classifier.
 
-***QUESTION:*** _Choose five candidate images of numbers you took from around you and provide them in the report. Are there any particular qualities of the image(s) that might make classification difficult?_
+Take several pictures of numbers that you find on the web or around you (at least five), and run them through your classifier on your computer to produce example results. The classifier might not recognize some local signs but it could prove interesting nonetheless. Alternatively (optionally), you can try using OpenCV / SimpleCV / Pygame to capture live images from a webcam and run those through your classifier.
 
-***QUESTION:*** _Is your model able to perform equally well on captured pictures or a live camera stream when compared to testing on the realistic dataset?_
+
+***QUESTION:*** _Choose five candidate images of traffic signs and provide them in the report. Are there any particular qualities of the image(s) that might make classification difficult?_
+
+***QUESTION:*** _Is your model able to perform equally well on captured pictures or a live camera stream when compared to testing on the dataset?_
 
 ***QUESTION:*** _If necessary, provide documentation for how an interface was built for your model to load and classify newly-acquired images._
 
