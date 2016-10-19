@@ -1,5 +1,5 @@
 """
-TensorFlow feedforward net on German Traffic Sign Dataset
+TensorFlow convolutional net on German Traffic Sign Dataset
 """
 import tensorflow as tf
 import pickle

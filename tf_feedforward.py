@@ -53,23 +53,23 @@ optimizer = tf.train.AdamOptimizer()
 train_op = optimizer.minimize(loss_op)
 
 with tf.Session() as sess:
-	sess.run(tf.initialize_all_variables())
-	for i in range(epochs):
-		for offset in range(0, X_train.shape[0], batch_size):
-			end = offset + batch_size
-			X_batch = X_train[offset:end]
-			y_batch = y_train[offset:end]	
+    sess.run(tf.initialize_all_variables())
+    for i in range(epochs):
+        for offset in range(0, X_train.shape[0], batch_size):
+            end = offset + batch_size
+            X_batch = X_train[offset:end]
+            y_batch = y_train[offset:end]	
 
-			sess.run([loss_op, train_op], feed_dict={features: X_batch, labels: y_batch})
+            sess.run([loss_op, train_op], feed_dict={features: X_batch, labels: y_batch})
 
-		val_loss, val_acc = sess.run([loss_op, accuracy], feed_dict={features: X_val, labels: y_val})
-        print("Epoch", i+1)
-        print("Validation Loss =", val_loss)
-        print("Validation Accuracy =", val_acc)
-        print("")
-		
-	test_loss, test_acc = sess.run([loss_op, accuracy], feed_dict={features: X_test, labels: y_test})
-	print("Testing	Loss =", test_loss)
-	print("Testing	Accuracy =", test_acc)
+        val_loss, val_acc = sess.run([loss_op, accuracy], feed_dict={features: X_val, labels: y_val})
+    print("Epoch", i+1)
+    print("Validation Loss =", val_loss)
+    print("Validation Accuracy =", val_acc)
+    print("")
+
+    test_loss, test_acc = sess.run([loss_op, accuracy], feed_dict={features: X_test, labels: y_test})
+    print("Testing Loss =", test_loss)
+    print("Testing Accuracy =", test_acc)
 
 
