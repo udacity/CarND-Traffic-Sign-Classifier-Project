@@ -85,7 +85,7 @@ Here is an example of a [published baseline model on this problem](http://yann.l
 
 ### Step 2: Test a Model on Newly-Captured Images
 
-Take several pictures of numbers that you find on the web or around you (at least five), and run them through your classifier on your computer to produce example results. The classifier might not recognize some local signs but it could prove interesting nonetheless. Alternatively (optionally), you can try using OpenCV / SimpleCV / Pygame to capture live images from a webcam and run those through your classifier.
+Take several pictures of traffic signs that you find on the web or around you (at least five), and run them through your classifier on your computer to produce example results. The classifier might not recognize some local signs but it could prove interesting nonetheless. Alternatively (optionally), you can try using OpenCV / SimpleCV / Pygame to capture live images from a webcam and run those through your classifier.
 
 
 ***QUESTION:*** _Choose five candidate images of traffic signs and provide them in the report. Are there any particular qualities of the image(s) that might make classification difficult?_
@@ -96,7 +96,7 @@ Take several pictures of numbers that you find on the web or around you (at leas
 
 ### Step 3: Build an Application or Program for a Model (Optional)
 
-Take your project one step further. If you're interested, look to build an Android application or even a more robust Python program that can interface with input images and display the classified numbers and even the bounding boxes. You can for example try to build an augmented reality app by overlaying your answer on the image like the [Word Lens](https://en.wikipedia.org/wiki/Word_Lens) app does.
+Take your project one step further. If you're interested, look to build an Android application or even a more robust Python program that can interface with input images and display the classified traffic signs and even the bounding boxes. You can find co-ordinates for bounding boxes in the [original dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). You can for example try to build an augmented reality app by overlaying your answer on the image like the [Word Lens](https://en.wikipedia.org/wiki/Word_Lens) app does.
 
 Loading a TensorFlow model into a camera app on Android is demonstrated in the [TensorFlow Android demo app](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android), which you can simply modify.
 
