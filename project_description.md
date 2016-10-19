@@ -85,8 +85,6 @@ Here is an example of a [published baseline model on this problem](http://yann.l
 
 ### Step 2: Test a Model on Newly-Captured Images
 
-Take several pictures of numbers that you find around you (at least five), and run them through your classifier on your computer to produce example results. Alternatively (optionally), you can try using OpenCV / SimpleCV / Pygame to capture live images from a webcam and run those through your classifier.
-
 Take several pictures of numbers that you find on the web or around you (at least five), and run them through your classifier on your computer to produce example results. The classifier might not recognize some local signs but it could prove interesting nonetheless. Alternatively (optionally), you can try using OpenCV / SimpleCV / Pygame to capture live images from a webcam and run those through your classifier.
 
 
