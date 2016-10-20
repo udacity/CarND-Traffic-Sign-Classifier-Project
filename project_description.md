@@ -62,7 +62,11 @@ jupyter notebook
 
 You will be required to answer questions about your implementation as part of your submission in the provided `Traffic_Signs_Recognition.ipynb.` As you complete the tasks below, include thorough, detailed answers to each question *provided in italics*.
 
-Step 1: Design and Test a Model Architecture
+### Step 1: Dataset Exploration
+
+Visualize the German Traffic Signs Dataset. This is open-ended, the visualization can be whatever you think, some suggestions include: plotting images, plotting the count of each sign, etc.
+
+### Step 2: Design and Test a Model Architecture
 
 Design and implement a deep learning model that learns to recognize traffic signs. Train and test your model on the German Traffic Sign Dataset.
 
@@ -79,11 +83,13 @@ Here is an example of a [published baseline model on this problem](http://yann.l
 
 ***QUESTION:*** _What does your final architecture look like? (Type of model, layers, sizes, connectivity, etc.)_
 
-***QUESTION:*** _Describe how you set up the training, validation and testing data for your model. Did you generate additional data?_
+***QUESTION:*** _Describe the techniques used to preprocess the data._
 
-***QUESTION:*** _How did you train your model?_
+***QUESTION:*** _Describe how you set up the training, validation and testing data for your model. If you generated additional data, why?_
 
-### Step 2: Test a Model on Newly-Captured Images
+***QUESTION:*** _How did you train your model? (Type of optimizer, batch size, epochs, hyperparameters, etc.)_
+
+### Step 3: Test a Model on Newly-Captured Images
 
 Take several pictures of traffic signs that you find on the web or around you (at least five), and run them through your classifier on your computer to produce example results. The classifier might not recognize some local signs but it could prove interesting nonetheless. Alternatively (optionally), you can try using OpenCV / SimpleCV / Pygame to capture live images from a webcam and run those through your classifier.
 
@@ -92,9 +98,11 @@ Take several pictures of traffic signs that you find on the web or around you (a
 
 ***QUESTION:*** _Is your model able to perform equally well on captured pictures or a live camera stream when compared to testing on the dataset?_
 
+***QUESTION:*** _Use the model's softmax probabilities to visualize the **certainty** of it's predictions, [`tf.nn.top_k`](https://www.tensorflow.org/versions/r0.11/api_docs/python/nn.html#top_k) could prove helpful here. Which predictions is the model certain of? Uncertain? If the model was incorrect in its initial prediction, does the correct prediction appear in the top k? (k should be 5 at most)_
+
 ***QUESTION:*** _If necessary, provide documentation for how an interface was built for your model to load and classify newly-acquired images._
 
-### Step 3: Build an Application or Program for a Model (Optional)
+### Step 4: Build an Application or Program for a Model (Optional)
 
 Take your project one step further. If you're interested, look to build an Android application or even a more robust Python program that can interface with input images and display the classified traffic signs and even the bounding boxes. You can find co-ordinates for bounding boxes in the [original dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). You can for example try to build an augmented reality app by overlaying your answer on the image like the [Word Lens](https://en.wikipedia.org/wiki/Word_Lens) app does.
 
