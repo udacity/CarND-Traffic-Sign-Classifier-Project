@@ -1,5 +1,5 @@
 # Content: Deep Learning
-## Project: Build a Traffic Sign Recognition Program
+## Project: Build a Traffic Sign Recognition Classifier
 
 ## Project Overview
 
@@ -75,7 +75,7 @@ The pickled data is a dictionary with 4 key/value pairs:
 
 ### Step 2: Design and Test a Model Architecture
 
-Design and implement a deep learning model that learns to recognize traffic signs. Train and test your model on the German Traffic Sign Dataset.
+Design and implement a deep learning model that learns to recognize traffic signs. Train and test your model on the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset).
 
 There are various aspects to consider when thinking about this problem:
 
@@ -84,21 +84,21 @@ There are various aspects to consider when thinking about this problem:
 - Number of examples per label (some have more than others).
 - Generate fake data.
 
-Here is an example of a [published baseline model on this problem](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf).
-
-***QUESTION:*** _What approach did you take in coming up with a solution to this problem?_
-
-***QUESTION:*** _What does your final architecture look like? (Type of model, layers, sizes, connectivity, etc.)_
+Here is an example of a [published baseline model on this problem](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf). It's not required to be familiar with the approach used in the paper but, it's good practice to try to read papers like these.
 
 ***QUESTION:*** _Describe the techniques used to preprocess the data._
 
 ***QUESTION:*** _Describe how you set up the training, validation and testing data for your model. If you generated additional data, why?_
 
+***QUESTION:*** _What does your final architecture look like? (Type of model, layers, sizes, connectivity, etc.)_
+
 ***QUESTION:*** _How did you train your model? (Type of optimizer, batch size, epochs, hyperparameters, etc.)_
+
+***QUESTION:*** _What approach did you take in coming up with a solution to this problem?_
 
 ### Step 3: Test a Model on Newly-Captured Images
 
-Take several pictures of traffic signs that you find on the web or around you (at least five), and run them through your classifier on your computer to produce example results. The classifier might not recognize some local signs but it could prove interesting nonetheless. Alternatively (optionally), you can try using OpenCV / SimpleCV / Pygame to capture live images from a webcam and run those through your classifier.
+Take several pictures of traffic signs that you find on the web or around your local area (at least five), and run them through your classifier to produce example results. The classifier might not recognize some local signs but it could prove interesting nonetheless.
 
 
 ***QUESTION:*** _Choose five candidate images of traffic signs and provide them in the report. Are there any particular qualities of the image(s) that might make classification difficult?_
@@ -111,7 +111,7 @@ Take several pictures of traffic signs that you find on the web or around you (a
 
 ### Step 4: Build an Application or Program for a Model (Optional)
 
-Take your project one step further. If you're interested, look to build an Android application or even a more robust Python program that can interface with input images and display the classified traffic signs and even the bounding boxes. You can find co-ordinates for bounding boxes in the [original dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). You can for example try to build an augmented reality app by overlaying your answer on the image like the [Word Lens](https://en.wikipedia.org/wiki/Word_Lens) app does.
+Take your project one step further. If you're interested, look to build an Android application or even a more robust Python program that can interface with input images and display the classified traffic signs and even the bounding boxes. You can find co-ordinates for bounding boxes in the `coords` key of the pickled data. You can for example try to build an augmented reality app by overlaying your answer on the image like the [Word Lens](https://en.wikipedia.org/wiki/Word_Lens) app does.
 
 Loading a TensorFlow model into a camera app on Android is demonstrated in the [TensorFlow Android demo app](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android), which you can simply modify.
 
