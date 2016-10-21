@@ -1,10 +1,5 @@
 """
-This gets ~0.97-0.98 accuracy
-
-Using a very aggresive dropout of 0.8.
-
-TODO: see if grayscaling helps accuracy
-TODO: see if extra training data (ImageDataGenerator) helps accuracy
+Generates additional data with ImageDataGenerator
 """
 import pickle
 from sklearn.model_selection import train_test_split
@@ -25,18 +20,14 @@ X_train = X_train.astype('float32')
 X_val = X_val.astype('float32')
 X_test = X_test.astype('float32')
 
-# 0-255 -> 0-1
-X_train /= 255
-X_val /= 255
-X_test /= 255
-
-batch_size = 32
+batch_size = 64
 # number of traffic signs
 n_classes = 43
 nb_epoch = 100
 input_shape = X_train.shape[1:]
 
 model = Sequential()
+model.add(Lambda(lambda x: x/255, input_shape=input_shape, output_shape=input_shape))
 model.add(Convolution2D(32, 3, 3, input_shape=input_shape))
 model.add(BatchNormalization())
 model.add(ELU())
@@ -84,6 +75,6 @@ model.fit_generator(
 # 1 (if you want to train more)
 # 0 (if you want to test)
 
-model.save('convnet.h5')
+model.save('imagegen.h5')
 _, acc = model.evaluate(X_test, y_test, verbose=0)
 print("Testing accuracy =", acc)

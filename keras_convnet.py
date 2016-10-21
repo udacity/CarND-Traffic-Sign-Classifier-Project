@@ -7,7 +7,7 @@ import pickle
 from sklearn.model_selection import train_test_split
 from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D, GlobalAveragePooling2D
-from keras.layers import Activation, Dropout, Dense, ELU, BatchNormalization
+from keras.layers import Activation, Dropout, Dense, ELU, BatchNormalization, Lambda
 
 with open('train.p', mode='rb') as f:
     train = pickle.load(f)
@@ -21,19 +21,15 @@ X_train = X_train.astype('float32')
 X_val = X_val.astype('float32')
 X_test = X_test.astype('float32')
 
-# 0-255 -> 0-1
-X_train /= 255
-X_val /= 255
-X_test /= 255
-
-batch_size = 32
+batch_size = 64
 # number of traffic signs
 n_classes = 43
 nb_epoch = 10
 input_shape = X_train.shape[1:]
 
 model = Sequential()
-model.add(Convolution2D(32, 3, 3, input_shape=input_shape))
+model.add(Lambda(lambda x: x/255, input_shape=input_shape, output_shape=input_shape))
+model.add(Convolution2D(32, 3, 3))
 model.add(BatchNormalization())
 model.add(ELU())
 model.add(MaxPooling2D(pool_size=(2, 2)))
