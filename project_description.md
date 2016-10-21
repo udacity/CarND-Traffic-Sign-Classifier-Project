@@ -64,7 +64,14 @@ You will be required to answer questions about your implementation as part of yo
 
 ### Step 1: Dataset Exploration
 
-Visualize the German Traffic Signs Dataset. This is open-ended, the visualization can be whatever you think, some suggestions include: plotting images, plotting the count of each sign, etc.
+Visualize the German Traffic Signs Dataset. This is open-ended, the visualization can be whatever you think, some suggestions include: plotting images, plotting the count of each sign, etc. Be creative!
+
+The pickled data is a dictionary with 4 key/value pairs:
+
+- features -> the images pixel values, (32,32,3) (width, height, channels)
+- labels -> the label of the traffic sign, range(0, 43)
+- sizes -> the original width and height of the image, (width, height)
+- coords -> coordinates of a bounding box around the sign in the image, (x1, y1, x2, y2)
 
 ### Step 2: Design and Test a Model Architecture
 
