@@ -20,9 +20,6 @@ Run this command at the terminal prompt to install [OpenCV](http://opencv.org/).
 
 - `conda install -c https://conda.anaconda.org/menpo opencv3`
 
-For those optionally seeking to deploy an Android application:
-- Android SDK & NDK (see this [README](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/README.md))
-
 ### Dataset
 
 1. Download the dataset. You can download the pickled dataset in which we've already resized the images to 32x32 [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/October/580d53ce_traffic-sign-data/traffic-sign-data.zip).
