@@ -4,3 +4,7 @@ data
 models
 *.swp
 *.p
+.DS_Store
+._.DS_Store
+/traffic-signs-data
+/generated-data
