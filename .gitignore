@@ -13,3 +13,4 @@ checkpoint
 *.data-00000-of-00001
 *._traffic-signs-data
 Notes.ipynb
+/config.json
