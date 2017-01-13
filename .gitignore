@@ -6,7 +6,6 @@ models
 *.p
 .DS_Store
 ._.DS_Store
-/traffic-signs-data
 checkpoint
 *.meta
 *.index
