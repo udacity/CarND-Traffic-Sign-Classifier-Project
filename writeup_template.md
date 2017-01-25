@@ -16,13 +16,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization_example.png "Visualization"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[image1]: ./examples/visualization.jpg "Visualization"
+[image2]: ./examples/grayscale.jpg "Grayscaling"
+[image3]: ./examples/random_noise.jpg "Random Noise"
+[image4]: ./examples/placeholder.png "Traffic Sign 1"
+[image5]: ./examples/placeholder.png "Traffic Sign 2"
+[image6]: ./examples/placeholder.png "Traffic Sign 3"
+[image7]: ./examples/placeholder.png "Traffic Sign 4"
+[image8]: ./examples/placeholder.png "Traffic Sign 5"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -36,94 +37,133 @@ You're reading it! and here is a link to my [project code](https://github.com/ud
 
 ###Data Set Summary & Exploration
 
-####1. The report includes a basic summary of the data set. Analysis is done using python, numpy and/or pandas methods rather than hardcoding results manually.
+####1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
 The code for this step is contained in the first code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`).  
 
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
 
-* size of training set is ?
-* size of test set is ?
-* shape of a traffic sign image is ?
-* number of unique classes/labels in the data set is ?
+* The size of training set is ?
+* The size of test set is ?
+* The shape of a traffic sign image is ?
+* The number of unique classes/labels in the data set is ?
 
-####2. Student performs an exploratory visualization on the dataset.
+####2. Include an exploratory visualization of the dataset.
 
 The code for this step is contained in the second code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`).  
 
-Here is an exploratory visualization of the data set. It is a histogram showing how the data ...
+Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
 
 ![alt text][image1]
 
-###Pipeline (single images)
+###Design and Test a Model Architecture
 
-####1. Provide an example of a distortion-corrected image.
-To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
+####1. Describe how (and identify where in your code) you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Include images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+
+The code for this step is contained in the third code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`).  
+
+As a first step, I decided to convert the images to grayscale because ...
+
+Here is an example of a traffic sign image before and after grayscaling.
+
 ![alt text][image2]
-####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+
+I finally normalized the image data because ...
+
+####2. Describe (and identify where in your code) how you set up training, cross validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (Optional: If you generated additional data, describe how you generated the data, identify where in your code, and provide example images of the additional data)
+
+The code for splitting the data into training and cross validation sets is contained in the third code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`).  
+
+To cross validate my model, I split the training data into a training set and cross validation set. I did this by ...
+
+The fourth code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
+
+To add more data to the the data set, I .... 
+
+Here is an example of an original image and an augmented image:
 
 ![alt text][image3]
 
-####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
+My final training set had X number of images. My cross validation set and test set had Y and Z number of images.
 
-The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+####3. Describe (and identify where in your code) what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model. For reference on how to build a deep neural network using TensorFlow, see [Deep Neural Network in TensorFlow](https://classroom.udacity.com/nanodegrees/nd013/parts/fbf77062-5703-404e-b60c-95b78b2f3f9e/modules/6df7ae49-c61c-4bb2-a23e-6527e69209ec/lessons/b516a270-8600-4f93-a0a3-20dfeabe5da6/concepts/83a3a2a2-a9bd-4b7b-95b0-eb924ab14432) from the classroom.
 
-```
-src = np.float32(
-    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
-    [((img_size[0] / 6) - 10), img_size[1]],
-    [(img_size[0] * 5 / 6) + 60, img_size[1]],
-    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
+The code for my final model is located in the 5th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
 
-```
-This resulted in the following source and destination points:
+My final model consisted of the following layers:
 
-| Source        | Destination   | 
-|:-------------:|:-------------:| 
-| 585, 460      | 320, 0        | 
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 32x32x3 RGB image   							| 
+| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
+| Convolution 3x3	    | etc.      									|
+| Fully connected		| etc.        									|
+| Softmax				| etc.        									|
+|						|												|
+|						|												|
+ 
 
-I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![alt text][image4]
+####4. Describe how (and identify where in your code) you trained your model. Discuss the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+The code for training the model is located in the 6th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+To train the model, I used an ....
 
-![alt text][image5]
+####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, cross validation and test sets (and where in the code these were calculated). Your approach may have been an iterative process using cross validation, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think this is suitable for the current problem.
 
-####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+The code for calculating the accuracy of the model is located in the 6th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
 
-I did this in lines # through # in my code in `my_other_file.py`
+My final model results were:
+* training accuracy of ?
+* cross validation accuracy of ? 
+* test accuracy of ?
 
-####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+If an iterative approach was chosen:
+* What was the first architecture that was tried and why was it chosen?
+* What were some problems with the initial architecture?
+* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the cross validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
+* Which parameters were tuned? How were they adjusted and why?
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+If a well known architecture was chosen:
+* What architecture was chosen?
+* Why did you believe it would be relevant to the traffic sign application?
+* How does the final model's accuracy on the training, cross validation and test set provide evidence that the model is working well?
+ 
 
-![alt text][image6]
+###Test a Model on New Images
 
----
+####1. Choose five German traffic signs from the web and provide them in the report. For each image, discuss what quality or qualities, if any, might be difficult to classify.
 
-###Pipeline (video)
+Here are five German traffic signs that I found on the web:
 
-####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+![alt text][image4] ![alt text][image5] ![alt text][image6] ![alt text][image7]
+![alt text][image8]
 
-Here's a [link to my video result](./project_video.mp4)
+The first image might be difficult to classify because ...
 
----
+####2. Discuss the model's predictions on these new traffic signs (and identify where in your code predictions were made). 
 
-###Discussion
+The code for making predictions on my final model is located in the 7th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
 
-####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction (and identify where in your code softmax probabilities were outputted). Provide the top 5 softmax probabilities for each image along with the sign type of each probability. Alternatively, an visualizations can be provided such as bar charts.
+
+The code for making predictions on my final model is located in the 8th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
+
+For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .60         			| Stop sign   									| 
+| .20     				| U-turn 										|
+| .05					| Yield											|
+| .04	      			| Bumpy Road					 				|
+| .01				    | Slipper Road      							|
+
+
+For the second image ... 
