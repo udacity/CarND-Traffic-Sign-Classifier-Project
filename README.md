@@ -36,7 +36,7 @@ This lab requires:
 
 The lab enviroment can be created with CarND Term1 Starter Kit. Click [here](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md) for the details.
 
-### Dataset
+### Dataset and Repository
 
 1. [Download the dataset](https://d17h27t6h515a5.cloudfront.net/topher/2016/November/581faac4_traffic-signs-data/traffic-signs-data.zip). This is a pickled dataset in which we've already resized the images to 32x32.
 2. Clone the project and start the notebook.
@@ -45,5 +45,6 @@ git clone https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project
 cd CarND-Traffic-Sign-Classifier-Project
 jupyter notebook Traffic_Sign_Classifier.ipynb
 ```
-3. Follow the instructions in the `Traffic_Sign_Recognition.ipynb` notebook.
-4. Write the project report.
+
+### Requirements for Submission
+Follow the instructions in the `Traffic_Sign_Recognition.ipynb` notebook and write the project report. Submit both the project code and the writeup.

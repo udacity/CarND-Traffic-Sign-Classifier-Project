@@ -71,21 +71,23 @@ Here is an example of a traffic sign image before and after grayscaling.
 
 I finally normalized the image data because ...
 
-####2. Describe (and identify where in your code) how you set up training, cross validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (Optional: If you generated additional data, describe how you generated the data, identify where in your code, and provide example images of the additional data)
+####2. Describe (and identify where in your code) how you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (Optional: If you generated additional data, describe why you decided to generater additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
-The code for splitting the data into training and cross validation sets is contained in the third code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`).  
+The code for splitting the data into training and validation sets is contained in the third code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`).  
 
-To cross validate my model, I split the training data into a training set and cross validation set. I did this by ...
+To cross validate my model, I split the training data into a training set and validation set. I did this by ...
 
 The fourth code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
 
-To add more data to the the data set, I .... 
+I decided to generate additional data because ... 
+
+To add more data to the the data set, I used the following techniques because.... 
 
 Here is an example of an original image and an augmented image:
 
 ![alt text][image3]
 
-My final training set had X number of images. My cross validation set and test set had Y and Z number of images.
+My final training set had X number of images. My validation set and test set had Y and Z number of images.
 
 ####3. Describe (and identify where in your code) what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model. For reference on how to build a deep neural network using TensorFlow, see [Deep Neural Network in TensorFlow](https://classroom.udacity.com/nanodegrees/nd013/parts/fbf77062-5703-404e-b60c-95b78b2f3f9e/modules/6df7ae49-c61c-4bb2-a23e-6527e69209ec/lessons/b516a270-8600-4f93-a0a3-20dfeabe5da6/concepts/83a3a2a2-a9bd-4b7b-95b0-eb924ab14432) from the classroom.
 
@@ -113,25 +115,25 @@ The code for training the model is located in the 6th cell of the ipython notebo
 
 To train the model, I used an ....
 
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, cross validation and test sets (and where in the code these were calculated). Your approach may have been an iterative process using cross validation, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think this is suitable for the current problem.
+####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets (and where in the code these were calculated). Your approach may have been an iterative process using cross validation, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think this is suitable for the current problem.
 
 The code for calculating the accuracy of the model is located in the 6th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
 
 My final model results were:
-* training accuracy of ?
-* cross validation accuracy of ? 
-* test accuracy of ?
+* training set accuracy of ?
+* validation set accuracy of ? 
+* test set accuracy of ?
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
 * What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the cross validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
+* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
 * Which parameters were tuned? How were they adjusted and why?
 
 If a well known architecture was chosen:
 * What architecture was chosen?
 * Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, cross validation and test set provide evidence that the model is working well?
+* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
  
 
 ###Test a Model on New Images
@@ -140,18 +142,27 @@ If a well known architecture was chosen:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] ![alt text][image7]
-![alt text][image8]
+![alt text][image4] ![alt text][image5] ![alt text][image6] 
+![alt text][image7] ![alt text][image8]
 
 The first image might be difficult to classify because ...
 
-####2. Discuss the model's predictions on these new traffic signs (and identify where in your code predictions were made). 
+####2. Discuss (and identify where in your code predictions were made) the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set.
 
-The code for making predictions on my final model is located in the 7th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
+The code for making predictions on my final model is located in the 7th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`)
+
+| Image			        |     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Stop Sign      		| Stop sign   									| 
+| U-turn     			| U-turn 										|
+| Yield					| Yield											|
+| 100 km/h	      		| Bumpy Road					 				|
+| Slippery Road			| Slippery Road      							|
+
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction (and identify where in your code softmax probabilities were outputted). Provide the top 5 softmax probabilities for each image along with the sign type of each probability. Alternatively, an visualizations can be provided such as bar charts.
+####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction (and identify where in your code softmax probabilities were outputted). Provide the top 5 softmax probabilities for each image along with the sign type of each probability. Optionally, visualizations can be provided such as bar charts.
 
 The code for making predictions on my final model is located in the 8th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
 
@@ -163,7 +174,7 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 | .20     				| U-turn 										|
 | .05					| Yield											|
 | .04	      			| Bumpy Road					 				|
-| .01				    | Slipper Road      							|
+| .01				    | Slippery Road      							|
 
 
 For the second image ... 
