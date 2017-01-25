@@ -69,9 +69,9 @@ Here is an example of a traffic sign image before and after grayscaling.
 
 ![alt text][image2]
 
-I finally normalized the image data because ...
+As a last step, I normalized the image data because ...
 
-####2. Describe (and identify where in your code) how you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (Optional: If you generated additional data, describe why you decided to generater additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+####2. Describe how (and identify where in your code) you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (Optional: If you generated additional data, describe why you decided to generater additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
 The code for splitting the data into training and validation sets is contained in the third code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`).  
 
@@ -89,7 +89,7 @@ Here is an example of an original image and an augmented image:
 
 My final training set had X number of images. My validation set and test set had Y and Z number of images.
 
-####3. Describe (and identify where in your code) what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model. For reference on how to build a deep neural network using TensorFlow, see [Deep Neural Network in TensorFlow](https://classroom.udacity.com/nanodegrees/nd013/parts/fbf77062-5703-404e-b60c-95b78b2f3f9e/modules/6df7ae49-c61c-4bb2-a23e-6527e69209ec/lessons/b516a270-8600-4f93-a0a3-20dfeabe5da6/concepts/83a3a2a2-a9bd-4b7b-95b0-eb924ab14432) from the classroom.
+####3. Describe (and identify where in your code) what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 The code for my final model is located in the 5th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
 
@@ -147,7 +147,7 @@ Here are five German traffic signs that I found on the web:
 
 The first image might be difficult to classify because ...
 
-####2. Discuss (and identify where in your code predictions were made) the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set.
+####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set (and identify where in your code predictions were made). At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set. Optionally, analyze the results in more detail.
 
 The code for making predictions on my final model is located in the 7th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`)
 
