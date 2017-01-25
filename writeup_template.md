@@ -71,11 +71,11 @@ Here is an example of a traffic sign image before and after grayscaling.
 
 As a last step, I normalized the image data because ...
 
-####2. Describe how (and identify where in your code) you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (Optional: If you generated additional data, describe why you decided to generater additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+####2. Describe how (and identify where in your code) you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (Optional: If you generated additional data, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
 The code for splitting the data into training and validation sets is contained in the third code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`).  
 
-To cross validate my model, I split the training data into a training set and validation set. I did this by ...
+To cross validate my model, I randomly split the training data into a training set and validation set. I did this by ...
 
 The fourth code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
 
@@ -109,7 +109,7 @@ My final model consisted of the following layers:
  
 
 
-####4. Describe how (and identify where in your code) you trained your model. Discuss the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+####4. Describe how (and identify where in your code) you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 The code for training the model is located in the 6th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`) contains the code for augmenting the data set. 
 
@@ -129,6 +129,7 @@ If an iterative approach was chosen:
 * What were some problems with the initial architecture?
 * How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
 * Which parameters were tuned? How were they adjusted and why?
+* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
 
 If a well known architecture was chosen:
 * What architecture was chosen?
@@ -150,6 +151,8 @@ The first image might be difficult to classify because ...
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set (and identify where in your code predictions were made). At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set. Optionally, analyze the results in more detail.
 
 The code for making predictions on my final model is located in the 7th cell of the ipython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called `some_file.py`)
+
+Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
