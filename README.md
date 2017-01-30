@@ -3,15 +3,16 @@
 
 Overview
 ---
-In this project, you will use what you've learned about deep neural networks and convolutional neural networks to classify traffic signs. You will train a model so it can decode traffic signs from natural images by using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, you will then test your model program on new images of German traffic signs you find on the web.
+In this project, you will use what you've learned about deep neural networks and convolutional neural networks to classify traffic signs. You will train and validate a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, you will then try out your model on images of German traffic signs that you find on the web.
 
-We want you to create a detailed writeup of the project. Check out the [writeup template](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_template.md) for this project and use it as a starting point for creating your own writeup.
+We have included an Ipython notebook that contains further instructions 
+and starter code. Be sure to download the [Ipython notebook](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). 
 
-We have also included an ipython notebook that contains further instructions 
-and starter code. Be sure to download the [ipython notebook](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). To meet specifications, the project will require submitting both a writeup and a code file.
+We also want you to create a detailed writeup of the project. Check out the [writeup template](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_template.md) for this project and use it as a starting point for creating your own writeup.
 
+To meet specifications, the project will require submitting both a writeup and the code file.
 
-Creating a great writeup
+Creating a Great Writeup
 ---
 A great writeup should include the rubric points as well as your description of how you addressed each point.  You should include a detailed description of the code used in each step (with line-number references and code snippets where necessary), and links to other supporting documents or external references.  You should include images in your writeup to demonstrate how your code works with examples.  
 
@@ -22,7 +23,7 @@ You're not required to use markdown for your writeup.  If you use another method
 The Project
 ---
 The goals / steps of this project are the following:
-* Load the data set (see below for links to the project files
+* Load the data set
 * Explore, summarize and visualize the data set
 * Design, train and test a model architecture
 * Use the model to make predictions on new images
@@ -47,4 +48,4 @@ jupyter notebook Traffic_Sign_Classifier.ipynb
 ```
 
 ### Requirements for Submission
-Follow the instructions in the `Traffic_Sign_Recognition.ipynb` notebook and write the project report. Submit both the project code and the writeup.
+Follow the instructions in the `Traffic_Sign_Recognition.ipynb` notebook and write the project report using the writeup template, `writeup_template.md`. Submit both the project code and the writeup.
