@@ -13,7 +13,7 @@ We also want you to create a detailed writeup of the project. Check out the [wri
 To meet specifications, the project will require submitting three files: 
 * the Ipython notebook with the code
 * the code exported as an html file
-* a writeup report either as a markdown or pdf file. 
+* a writeup report either as a markdown or pdf file 
 
 Creating a Great Writeup
 ---
