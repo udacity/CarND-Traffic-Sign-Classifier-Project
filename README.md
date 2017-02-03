@@ -1,11 +1,15 @@
 
-Classification of German traffic signs is one of the assignments in Udacity Self-Driving Car Nanodegree program, however the dataset is publicly [available here](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset){:target="_blank"}, and here is a [Jupyter notebook with the final solution](https://github.com/navoshta/traffic-signs/blob/master/Traffic_Signs_Recognition.ipynb){:target="_blank"} I am describing in this tutorial. This is also one of the first models I had a chance to build entirely from scratch, so I was pretty excited about it! 
 
-I'm assuming you already know a fair bit about neural networks and regularization, as I won't go into too much detail about their background and how they work. I am using **TensorFlow** as a ML framework and a couple of dependancies like `numpy`, `matplotlib` and `scikit-image`. In case you are not familiar with TensorFlow, make sure to check out [my recent post](http://navoshta.com/facial-with-tensorflow/){:target="_blank"} about its core concepts. If you would like to follow along, you may as well need a machine with a CUDA-capable GPU.
+# Traffic signs classification with a convolutional network
+
+This is my attempt to tackle traffic signs classification problem with a convolutional neural network implemented in TensorFlow (reaching 99.33% accuracy). The highlights of this solution would be data preprocessing, data augmentation, pre-training and skipping connections in the network.
+Classification of German traffic signs is one of the assignments in Udacity Self-Driving Car Nanodegree program, however the dataset is publicly [available here](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset).
+
+I'm assuming you already know a fair bit about neural networks and regularization, as I won't go into too much detail about their background and how they work. I am using **TensorFlow** as a ML framework and a couple of dependancies like `numpy`, `matplotlib` and `scikit-image`. In case you are not familiar with TensorFlow, make sure to check out [my recent post](http://navoshta.com/facial-with-tensorflow/) about its core concepts. If you would like to follow along, you may as well need a machine with a CUDA-capable GPU.
 
 ## Dataset
 
-The [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset){:target="_blank"} consists of **39,209 32×32 px color images** that we are supposed to use for training, and **12,630 images** that we will use for testing. Each image is a photo of a traffic sign belonging to one of 43 classes, e.g. traffic sign types.
+The [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) consists of **39,209 32×32 px color images** that we are supposed to use for training, and **12,630 images** that we will use for testing. Each image is a photo of a traffic sign belonging to one of 43 classes, e.g. traffic sign types.
 
 Each image is a 32×32×3 array of pixel intensities, represented as `[0, 255]` integer values in RGB color space. Class of each image is encoded as an integer in a 0 to 42 range. Dataset is very unbalanced, and some classes are represented significantly better than the others. The images also differ significantly in terms of contrast and brightness, so we will need to apply some kind of histogram equalization, this should noticeably improve feature extraction.
 
@@ -13,7 +17,7 @@ Each image is a 32×32×3 array of pixel intensities, represented as `[0, 255]` 
 
 The usual preprocessing in this case would include scaling of pixel values to `[0, 1]` (as currently they are in `[0, 255]` range), representing labels in a one-hot encoding and shuffling. Looking at the images, histogram equalization may be helpful as well. We will apply _localized_ histogram equalization, as it seems to improve feature extraction even further in our case. 
 
-I will only use a single channel in my model, e.g. grayscale images instead of color ones. As Pierre Sermanet and Yann LeCun mentioned in [their paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf){:target="_blank"}, using color channels didn't seem to improve things a lot, so I will only take `Y` channel of the `YCbCr` representation of an image.
+I will only use a single channel in my model, e.g. grayscale images instead of color ones. As Pierre Sermanet and Yann LeCun mentioned in [their paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), using color channels didn't seem to improve things a lot, so I will only take `Y` channel of the `YCbCr` representation of an image.
 
 ```python
 import numpy as np
@@ -160,7 +164,7 @@ Please note that we use `edge` mode when applying our transformations, to ensure
 
 ### Architecture
 
-I decided to use a deep neural network classifier as a model, which was inspired by [Daniel Nouri's tutorial](http://navoshta.com/facial-with-tensorflow/){:target="_blank"} and aforementioned [Pierre Sermanet / Yann LeCun paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf){:target="_blank"}. It is fairly simple and has 4 layers: **3 convolutional layers** for feature extraction and **one fully connected layer** as a classifier.
+I decided to use a deep neural network classifier as a model, which was inspired by [Daniel Nouri's tutorial](http://navoshta.com/facial-with-tensorflow/) and aforementioned [Pierre Sermanet / Yann LeCun paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf). It is fairly simple and has 4 layers: **3 convolutional layers** for feature extraction and **one fully connected layer** as a classifier.
 
 As opposed to usual strict feed-forward CNNs I use **multi-scale features**, which means that convolutional layers' output is not only forwarded into subsequent layer, but is also branched off and fed into classifier (e.g. fully connected layer). Please mind that these branched off layers undergo additional max-pooling, so that all convolutions are proportionally subsampled before going into classifier.
 
@@ -313,8 +317,7 @@ def model_pass(input, params, is_training):
 
 Note that we collect all branched off convolutional layers' output, flatten and concatenate them before passing over to classifier.
 
-If you have questions about TensorFlow implementation, make sure to check out [my TensorFlow post](http://navoshta.com/facial-with-tensorflow/){:target="_blank"} about variable scopes, saving and restoring sessions, implementing dropout and other interesting things!
-{: .notice}
+If you have questions about TensorFlow implementation, make sure to check out [my TensorFlow post](http://navoshta.com/facial-with-tensorflow/) about variable scopes, saving and restoring sessions, implementing dropout and other interesting things!
 
 ## Training
 
@@ -324,7 +327,6 @@ I have generated two datasets for training my model using augmentation pipeline 
 * **Balanced** dataset. This dataset is balanced across classes and has **20.000 examples** for each class. These 20k contain original training dataset, as well as jittered images from the original training set (with **augmentation intensity = 0.75**) to complete number of examples for each class to 20.000 images.
 
 **Disclaimer:** Training on **extended** dataset may not be the best idea, as some classes remain significantly less represented than the others there. Training a model with this dataset would make it biased towards predicting overrepresented classes. However, in our case we are trying to score highest accuracy on supplied test dataset, which (probably) follows the same classes distribution. So we are going to _cheat_ a bit and use this extended dataset for pre-training — this has proven to make test set accuracy higher (although hardly makes a model perform better "in the field"!).
-{: .notice}
 
 I then use 25% of these augmented datasets for validation while training in 2 stages:
 
