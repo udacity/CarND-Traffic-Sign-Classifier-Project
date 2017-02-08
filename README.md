@@ -42,7 +42,7 @@ The lab enviroment can be created with CarND Term1 Starter Kit. Click [here](htt
 
 ### Dataset and Repository
 
-1. [Download the dataset](https://d17h27t6h515a5.cloudfront.net/topher/2016/November/581faac4_traffic-signs-data/traffic-signs-data.zip). This is a pickled dataset in which we've already resized the images to 32x32.
+1. Download the data set. The classroom has a link to the data set in the "Project Instructions" content. This is a pickled dataset in which we've already resized the images to 32x32. It contains a training, validation and test set.
 2. Clone the project, which contains the Ipython notebook and the writeup template.
 ```sh
 git clone https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project
