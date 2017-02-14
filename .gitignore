@@ -1,6 +1,9 @@
-data
-.ipynb_checkpoints
 *.h5
-models
-*.swp
 *.p
+*.swp
+.idea
+.ipynb_checkpoints
+augment.py
+data
+models
+traffic-signs-data.zip
