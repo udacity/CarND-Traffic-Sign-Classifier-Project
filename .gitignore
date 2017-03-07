@@ -1,9 +1,7 @@
-*.h5
 *.p
-*.swp
+.DS_Store
 .idea
 .ipynb_checkpoints
-augment.py
+checkpoint
 data
-models
-traffic-signs-data.zip
+lenet.*
