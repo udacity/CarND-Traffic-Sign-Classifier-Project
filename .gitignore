@@ -1,6 +1,7 @@
-data
-.ipynb_checkpoints
-*.h5
-models
-*.swp
 *.p
+.DS_Store
+.idea
+.ipynb_checkpoints
+checkpoint
+data
+lenet.*

@@ -1,54 +1,119 @@
-## Project: Build a Traffic Sign Recognition Program
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+# Traffic Sign Recognition
 
-Overview
----
-In this project, you will use what you've learned about deep neural networks and convolutional neural networks to classify traffic signs. You will train and validate a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, you will then try out your model on images of German traffic signs that you find on the web.
+## Files Submitted
 
-We have included an Ipython notebook that contains further instructions 
-and starter code. Be sure to download the [Ipython notebook](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). 
+* [Report](report.pdf);
+* [Source](Traffic_Sign_Classifier.ipynb).
 
-We also want you to create a detailed writeup of the project. Check out the [writeup template](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_template.md) for this project and use it as a starting point for creating your own writeup. The writeup can be either a markdown file or a pdf document.
+## Dataset Exploration
 
-To meet specifications, the project will require submitting three files: 
-* the Ipython notebook with the code
-* the code exported as an html file
-* a writeup report either as a markdown or pdf file 
+### Dataset Summary
 
-Creating a Great Writeup
----
-A great writeup should include the [rubric points](https://review.udacity.com/#!/rubrics/481/view) as well as your description of how you addressed each point.  You should include a detailed description of the code used in each step (with line-number references and code snippets where necessary), and links to other supporting documents or external references.  You should include images in your writeup to demonstrate how your code works with examples.  
+The [downloaded dataset](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip) was comprised of traffic sign images, where each image was 32 pixels wide, 32 pixels tall and 24-bit colors. In total we had:
 
-All that said, please be concise!  We're not looking for you to write a book here, just a brief description of how you passed each rubric point, and references to the relevant code :). 
+* 34,799 training examples;
+* 12,630 testing examples;
+* 43 distinct classes.
 
-You're not required to use markdown for your writeup.  If you use another method please just submit a pdf of your writeup.
+![Original dataset histogram](images/dataset_histogram.png)
 
-The Project
----
-The goals / steps of this project are the following:
-* Load the data set
-* Explore, summarize and visualize the data set
-* Design, train and test a model architecture
-* Use the model to make predictions on new images
-* Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
+### Exploratory Visualization
 
-### Dependencies
-This lab requires:
+Here is a random sample of 250 traffic signs from the training dataset:
 
-* [CarND Term1 Starter Kit](https://github.com/udacity/CarND-Term1-Starter-Kit)
+![Dataset sample](images/dataset_sample.png)
 
-The lab enviroment can be created with CarND Term1 Starter Kit. Click [here](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md) for the details.
+It is noteworthy the pictures were taken with various light conditions and some are quite hard to read.
 
-### Dataset and Repository
+### Augmented Dataset
 
-1. Download the data set. The classroom has a link to the data set in the "Project Instructions" content. This is a pickled dataset in which we've already resized the images to 32x32. It contains a training, validation and test set.
-2. Clone the project, which contains the Ipython notebook and the writeup template.
-```sh
-git clone https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project
-cd CarND-Traffic-Sign-Classifier-Project
-jupyter notebook Traffic_Sign_Classifier.ipynb
-```
+The dataset distribution was very irregular and that could negatively impact the training and performance of our model.
 
-### Requirements for Submission
-Follow the instructions in the `Traffic_Sign_Classifier.ipynb` notebook and write the project report using the writeup template as a guide, `writeup_template.md`. Submit the project code and writeup document.
+This could be mitigated by augmenting the original dataset by generating variations of the signs with lower frequencies.
+
+I decided to rotate those signs by ± 30 degrees in each of the 3 axis, giving an illusion of perspective:
+
+![Augumented sample](images/dataset_sample_augumented.png)
+
+By doing this, I was able to increase the training dataset size from **34,799** to **86,430** samples with uniform distribution:
+
+![Augmented dataset histogram](images/augumented_dataset_histogram.png)
+
+## Design and Test a Model Architecture
+
+### Preprocessing
+
+The images were pre-processed with only 2 steps:
+
+1. Conversion from 24-bit color space into 8-bit grayscale using `cv2.cvtColor`. Although colors can be an important signal to help identify traffic signs, they must remain distinct if converted to grayscale. The reduced color space can simplify architecture and reduce the demand for computational resources;
+
+2. Normalization via `cv2.equalizeHist`. This would increase contrast and highlight the important features.
+
+![Dataset sample](images/dataset_sample_processed.png)
+ 
+### Model Architecture
+
+The model employed was based on the LeNet implemented in a previous lab, with minimal changes to produce logits with **43** classes instead of **10**:
+
+![LeNet](images/model_architecture.png)
+
+### Model Training
+
+Since the input images should contain a single traffic sign, the `tf.nn.softmax_cross_entropy_with_logits` function was choosen as optmizer:  
+
+> Computes softmax cross entropy between logits and labels.
+> Measures the probability error in discrete classification tasks in which the classes are mutually exclusive (each entry is in exactly one class).
+
+The `tf.nn.sparse_softmax_cross_entropy_with_logits` function would be another suitable optimizer, but it wasn't evaluated at this time.
+
+### Solution Approach
+
+After over a dozen iterations, tweaking each hyperparameter individually, the best results were achieved with the following values:
+
+* Number of epochs: **120**;
+* Batch size: **128**;
+* Learning rate: **0.001**.
+
+That lead to the following accuracy:
+
+* Validation set: **93.1%**;
+* Test set: **89.6%**.
+
+I also wrote a script to extract a segment from an image, given its URL and use it to create an addtional test set with traffics signs images found on the World Wide Web. Like the one bellow:
+
+![Web image](https://image.shutterstock.com/z/stock-photo-too-many-traffic-signs-on-white-background-71581573.jpg)
+
+From that original image, I chose 7 that had belong to the 43 classes we used to train our model: 
+
+![Web test set](images/web_test_set.png)
+
+After running those images against the trained model, the result was:
+
+Sign | Prediction | Hit
+-----| -----------|----
+Slippery road | Slippery road | :heavy_check_mark:
+End of no passing by vehicles over 3.5 metric tons | Ahead only | :x:
+No entry | No entry | :heavy_check_mark:
+Go straight or right | Go straight or right | :heavy_check_mark:
+Road work Prediction | Road work | :heavy_check_mark:
+Traffic signals | Traffic signals | :heavy_check_mark:
+Children crossing | Children crossing | :heavy_check_mark:
+
+That is **6** out **7** or **85.7%** accuracy.
+
+Digging down into the top five predictions for each sign:
+
+![](images/web_test_set_prediction.png)
+
+It was a surprise that every top prediction was close to 100% of confidence. Smells like overfitting?
+
+## Final Thoughts
+
+The results are far from stellar and definetelly not even close to a solution that could be shipped and used in the real world.
+
+Some areas where I could have invested more time:
+
+* **Image pre-processing**: remove the background, leaving only the region that encompasses the sign. That should straight-forward, since all signs fall into a limited class of geometric shapes (circle, triangle, rectangle, etc). Another step of normalization, after the background removal;
+* **Model architecture**: LeNet has an incredible accuracy for a much simpler problem and it was surprising to perform reasonably well to classify trafic signs, but I could spent some time researching papers about other architectures that could perform better.
+
+All things considered, I am extremely satisfied to learn so much about Python (and so many libraries), while experimenting with a real world application for CNNs.
