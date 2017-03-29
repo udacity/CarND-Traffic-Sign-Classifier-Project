@@ -126,18 +126,18 @@ My final model consisted of the following layers:
 
 ####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-The code for training the model is located in the 24th cell of the ipython notebook. 
+The code for training the model is located in the 23th cell of the ipython notebook. 
 
-To train the model, I used 100 EPOCHS, and BATCH SIZE of 64, and AdamOptimizer with learning rate 0.001
+To train the model, I used 200 EPOCHS, and BATCH SIZE of 64, and AdamOptimizer with learning rate 0.001. It turns out the validation error stops decreasing after around 100 EPOCHS.
 
 ####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
-The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
+The code for calculating the accuracy of the model is located in the 26th cell of the Ipython notebook.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 98.8%
+* validation set accuracy of 97.3%
+* test set accuracy of 94.7%
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -175,29 +175,34 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Children crossing		| Stop sign   									| 
-| Pedestrians  			| Pedestrians 									|
-| Speed limit (20km/h)	| Yield											|
-| Double curve     		| Bumpy Road					 				|
-| Keep right			| Slippery Road      							|
+| Children crossing		| Children crossing								| 
+| Pedestrians  			| Detection Road narrows on the right			|
+| Speed limit (20km/h)	| Speed limit (20km/h)							|
+| Double curve     		| Road work 					 				|
+| Keep right			| Keep right        							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. 
+The model was able to correctly guess 3 of the 5 traffic signs, which gives an accuracy of 60%. 
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 34 cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is almost sure that this is a Children crossing (probability of 1.00), and the image is a Children crossing. 
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| 1.00         			| Children crossing								| 
+| 0.00     				| Road narrows on the right						|
+| 0.00					| General caution								|
+| 0.00	      			| Road work 					 				|
+| 0.00				    | Bicycles crossing    							|
 
-For the second image ... 
+For the second image, the model is almost sure (wrongly) that this is a road narrows on the right. The second highest probaiblty (but close to 0) is Pedestrian, which is the correct answer. All top 5 categories are triangle shaped signs. 
 
+For the third image, the model is highly confident (0.87) that this is a speed limit (200km/h) which is the correct answer. Interestingly, all the top 5 are speek limit signs with different speed limit.
+
+For the fourth image, the model thinks this is most likely (0.66)  road work sign while the actual answer is Double Curve. 
+
+For the 5th image, the model thinks this is almost sure that this is a keep right sign which is correct.
 
