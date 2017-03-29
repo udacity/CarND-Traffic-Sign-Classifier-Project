@@ -18,11 +18,11 @@ The goals / steps of this project are the following:
 [image1]: ./examples/traffic_sign_original.png "Original Image"
 [image2]: ./examples/traffic_sign_pp.png "After Preprocessing"
 [image3]: ./examples/traffic_sign_aug.png "After Random Affine Transformation"
-[image4]: ./examples/onlineimage_0.png "Traffic Sign 1"
-[image5]: ./examples/onlineimage_1.png "Traffic Sign 2"
-[image6]: ./examples/onlineimage_2.png "Traffic Sign 3"
-[image7]: ./examples/onlineimage_3.png "Traffic Sign 4"
-[image8]: ./examples/onlineimage_4.png "Traffic Sign 5"
+[image4]: ./examples/onlineimage_0.jpg "Traffic Sign 1"
+[image5]: ./examples/onlineimage_1.jpg "Traffic Sign 2"
+[image6]: ./examples/onlineimage_2.jpg "Traffic Sign 3"
+[image7]: ./examples/onlineimage_3.jpg "Traffic Sign 4"
+[image8]: ./examples/onlineimage_4.jpg "Traffic Sign 5"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  For the "stand out" suggestions in the rubic, I include "Augment the training data", "create visualizations of the softmax probabilities", "visualize layers of the neural network". The soft max probabilities I got are almost one for one class and zero for the rest and I did not consider plotting them. 
