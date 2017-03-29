@@ -15,9 +15,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
+[image1]: ./examples/traffic_sign_original.png "Original Image"
+[image2]: ./examples/traffic_sign_pp.png "After Preprocessing"
+[image3]: ./examples/traffic_sign_aug.png "After Random Affine Transformation"
 [image4]: ./examples/onlineimage_0.png "Traffic Sign 1"
 [image5]: ./examples/onlineimage_1.png "Traffic Sign 2"
 [image6]: ./examples/onlineimage_2.png "Traffic Sign 3"
@@ -32,8 +32,8 @@ The goals / steps of this project are the following:
 
 ####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-My final version of the code for submission is the [notebook](https://github.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project)
-The write-up is the [Markdown document](https://github.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project)
+My final version of the code for submission is the [notebook](https://raw.githubusercontent.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project/master/Traffic_Sign_Classifier_Submission.ipynb)
+The write-up is the [Markdown document](https://github.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project/blob/3_18_2017/Traffic_Sign_Classifier_Write_Up.md)
 
 ###Data Set Summary & Exploration(https://github.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project)
 
@@ -75,8 +75,9 @@ The preprocessing did was to normalize / rescale the V channel of the HSV repres
 The output of the preprocessing step is still RGB. The reason behind this is to compensate for the different brightness of the image. Some of the traffice signs (such as image (3,4) in code cell 11) looks better than the same image before preprocessing (image (3,4) in code cell 6)
 
 
-Here is an example of the sign image (3,4) before and after preprocessing.
+Here is are 43 images (one from each class) before and after preprocessing.
 
+![alt text][image1]
 ![alt text][image2]
 
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
@@ -92,6 +93,8 @@ For each original image in training, 10 randomly transformed images are generate
 My final training data set is of size 347990.
 
 The first set of images after the random affine transformation is visualized in code cell 14.
+Here is are 43 images after transformation.
+![alt text][image3]
 
 ####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
