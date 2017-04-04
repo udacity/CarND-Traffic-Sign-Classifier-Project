@@ -2,7 +2,7 @@
 
 ---
 
-** Resubmission Note **
+**Resubmission Note**
 In my resubmission, I have replaced insentiy scaling with CLAHE. In response to the feedback on analyzing result on new images, I added a comment and also analyze individual detection probability for each class. Please see Code cell 33 - 35.
 The resubmitted notebook is [notebook](https://raw.githubusercontent.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project/master/Traffic_Sign_Classifier_Submission_v2.ipynb)
 
