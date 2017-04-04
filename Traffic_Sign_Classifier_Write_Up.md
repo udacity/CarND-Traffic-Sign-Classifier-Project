@@ -2,6 +2,10 @@
 
 ---
 
+** Resubmission Note **
+In my resubmission, I have replaced insentiy scaling with CLAHE. In response to the feedback on analyzing result on new images, I added a comment and also analyze individual detection probability for each class. Please see Code cell 33 - 35.
+The resubmitted notebook is [notebook](https://raw.githubusercontent.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project/master/Traffic_Sign_Classifier_Submission_v2.ipynb)
+
 **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
@@ -32,7 +36,7 @@ The goals / steps of this project are the following:
 
 ####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-My final version of the code for submission is the [notebook](https://raw.githubusercontent.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project/master/Traffic_Sign_Classifier_Submission.ipynb)
+My final version of the code for submission is the [notebook](https://raw.githubusercontent.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project/master/Traffic_Sign_Classifier_Submission_v2.ipynb)
 The write-up is the [Markdown document](https://github.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project/blob/3_18_2017/Traffic_Sign_Classifier_Write_Up.md)
 
 ###Data Set Summary & Exploration(https://github.com/dhuangdeveloper/CarND-Traffic-Sign-Classifier-Project)
@@ -69,7 +73,7 @@ The defintion of the processing function for this step is contained in the 9th c
 The preprocessing did was to normalize / rescale the V channel of the HSV representation, and is consisted of 3 steps:
 
 - Step1: Convert RGB to HSV representation
-- Step2: Rescale the intensiy of the V channel.
+- Step2: Change the intensiy of the V channel via CLAHE.
 - Step3: Convert HSV representation back to RGB.
 
 The output of the preprocessing step is still RGB. The reason behind this is to compensate for the different brightness of the image. Some of the traffice signs (such as image (3,4) in code cell 11) looks better than the same image before preprocessing (image (3,4) in code cell 6)
@@ -128,16 +132,16 @@ My final model consisted of the following layers:
 
 The code for training the model is located in the 23th cell of the ipython notebook. 
 
-To train the model, I used 200 EPOCHS, and BATCH SIZE of 64, and AdamOptimizer with learning rate 0.001. It turns out the validation error stops decreasing after around 100 EPOCHS.
+To train the model, I used 100 EPOCHS, and BATCH SIZE of 128, and AdamOptimizer with learning rate 0.001. 
 
 ####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 The code for calculating the accuracy of the model is located in the 26th cell of the Ipython notebook.
 
 My final model results were:
-* training set accuracy of 98.8%
-* validation set accuracy of 97.3%
-* test set accuracy of 94.7%
+* training set accuracy of 99.7%
+* validation set accuracy of 95.8%
+* test set accuracy of 94.8%
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -175,34 +179,36 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Children crossing		| Children crossing								| 
-| Pedestrians  			| Detection Road narrows on the right			|
+| Children crossing		| Bumpy road    								| 
+| Pedestrians  			| General caution                   			|
 | Speed limit (20km/h)	| Speed limit (20km/h)							|
 | Double curve     		| Road work 					 				|
 | Keep right			| Keep right        							|
 
 
-The model was able to correctly guess 3 of the 5 traffic signs, which gives an accuracy of 60%. 
+The model was able to correctly guess 2 of the 5 traffic signs, which gives an accuracy of 40%. 
+
+The accuracy for the 5 images is lower than the accuracy on the test set. This might be the result of overfitting on the gatahered data. However, one needs to cautious with this observation since the variance of accuracy on 5 images is rather large. We need to test on more images to draw a more stasistically sound conclusion. 
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model is located in the 34 cell of the Ipython notebook.
 
-For the first image, the model is almost sure that this is a Children crossing (probability of 1.00), and the image is a Children crossing. 
+For the first image, the model is almost sure that this is a bumpy road (probability of 1.00), and the image is a Children crossing. 
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 1.00         			| Children crossing								| 
-| 0.00     				| Road narrows on the right						|
-| 0.00					| General caution								|
-| 0.00	      			| Road work 					 				|
-| 0.00				    | Bicycles crossing    							|
+| 1.00         			| Bumpy road    								| 
+| 0.00     				| Byclcles crossing     						|
+| 0.00					| Children crossing   							|
+| 0.00	      			| Road narrows on the right		 				|
+| 0.00				    | Slippery road     							|
 
-For the second image, the model is almost sure (wrongly) that this is a road narrows on the right. The second highest probaiblty (but close to 0) is Pedestrian, which is the correct answer. All top 5 categories are triangle shaped signs. 
+For the second image, the model is highly confident (0.83) that this is a general caution. The second highest probaiblty (0.08) is Pedestrian, which is the correct answer. All top 5 categories are triangle shaped signs. 
 
-For the third image, the model is highly confident (0.87) that this is a speed limit (200km/h) which is the correct answer. Interestingly, all the top 5 are speek limit signs with different speed limit.
+For the third image, the model is highly confident (1.00) that this is a speed limit (200km/h) which is the correct answer. Interestingly, all the top 5 are speek limit signs with different speed limit.
 
-For the fourth image, the model thinks this is most likely (0.66)  road work sign while the actual answer is Double Curve. 
+For the fourth image, the model thinks this is most likely (0.99)  road work sign while the actual answer is Double Curve. 
 
 For the 5th image, the model thinks this is almost sure that this is a keep right sign which is correct.
 
