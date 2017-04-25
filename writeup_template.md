@@ -72,38 +72,54 @@ My final model consisted of 4 convolutional layers, and 3 fully connected networ
 | Fully connected		| 400x42, activation: tanh    	     			        |
 | tanh			        |								        		        |
 
+#### Tensorflow data format
+For improving GPU performance, I used *NCHW* format in the model.
+
 #### Initialization of weights
 Initialization of weights has been establshed as one key success factor of neural network. I have tried gaussian and xavier initialization, and xavier initialization was able to achieve faster training rate, but after sufficient epochs, there is no observable difference in their training and test accuracy.
 
 #### Activation in Convolution Layers
-I have tried ReLu and Leaky ReLu, and Leaky ReLu performs slightly better than ReLu. For this reason, Leaky ReLu is used in my model
+I have tried ReLu and Leaky ReLu, and Leaky ReLu performs slightly better than ReLu. For this reason, Leaky ReLu is used in my model.
 
 #### Activation in Fully Connected Layer
 I have tried ReLu, Leaky ReLu, tanh, and softmax. Tanh performed a lot better than the rest, and is used.
 
-#### Alternative Model Experimented
-I have tried models with one extra fully connected layer, the best test accuracy was 96.5.
+#### Dropout
+All the hidden fully connected layers also uses dropout to reduce overfitting. In order to tuen dropout off during perdiction, a placeholder is used. 
 
-#### Training
+#### Alternative Model Experimented
+I have tried models with one extra fully connected layer, the repository contains the following models that are among all models that I have tried:
+
+| Folder      	    	|     Description	                   		                                                             | 
+|:---------------------:|:------------------------------------------------------------------------------------------------------:|
+| CNN-2-4            	| 2 convolution layers, and 4 network layers, gassian weight initialization                              |
+| CNN-2-4-local-norm   	| 2 convolution layers with local normalization, and 4 network layers, gassian weight initialization     |
+| CNN-3-4           	| 3 convolution layers, and 4 network layers, gassian weight initialization                              |
+| CNN-4-3           	| 4 convolution layers, and 3 network layers, gassian weight initialization                              |
+| CNN-4-4            	| 4 convolution layers, and 4 network layers, gassian weight initialization                              |
+| Gaussian            	| 4 convolution layers, and 3 network layers, gassian weight initialization                              | 
+| randomize_image       | 4 convolution layers, and 3 network layers, xavier weight initialization                               | 
+| xavier            	| 4 convolution layers, and 3 network layers, xavier weight initialization                               | 
+
+### Training
 Training uses Adam Optimizer with a learning rate of 0.0006, a batch size of 256, and 100 epochs for every training. The process tried 10 trainings, and the model that results in the best validation accuracy are stored in checkpoints.
 
+The training was perform on a Winbdows 10 destop with Nvidia GTX 1080. The training time for 1000 epochs was aroung 5600 seconds.
+Since Windows 10 does not support GPU pass-through, Docker and Anaconda cannot be used. Fortunately, Python 3.5 worked just fine.
+
 My final model results were:
-* Training set accuracy of ?
-* Validation set accuracy of 98.7%
-* Test set accuracy of 97 to 97.5%
+* Training set accuracy: 99.38%
+* Validation set accuracy of 98.5%
+* Test set accuracy ranges 97.6%
 
+##### Other optimization experimented
+I have also tried Adadelta optimizer, the result was not acceptable. It might be caused by poor tuned learning rate or other hyper parameters. But given the limited time, I could not explore further.
 
-###Test a Model on New Images
+### Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
-
-Here are the German traffic signs that I found on the web:
+Here are 10 German traffic signs that I found on the web, their pre-processed images used for perdiction are also shown:
 
 ![alt text][image2]
-
-The first image might be difficult to classify because ...
-
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction, and the probability
 
@@ -111,23 +127,21 @@ Here are the results of the prediction, and the probability
 |:-------------------------:|:------------------------------:|:------------:|
 | Speed Linit 30km/h        | Speed Linit 30km/h   			 |   15.27%		| 
 | Yield     			    | Yield 						 |	 15.27%		|
-| Stop					    | Stop							 |	 14.97%		|
+| Stop					    | Stop							 |	 15.27%		|
 | No entry	      		    | No entry  					 |	 15.27%		|
-| Dangerous curve to right	| Dangerous curve to right     	 |	 15.23%		|
-| Bumpy road            	| Bumpy road                 	 |	 15.26%		|
-| Slippery road         	| Slippery road                	 |	 15.16%		|
-| Road work             	| Road work                  	 |	 15.25%		|
-| Pedestrians             	| Pedestrians                  	 |	 14.79% 	|
-| Speed limit 60km/h        | Speed limit 60km/h             | 	 15.26%		|
+| Dangerous curve to right	| Dangerous curve to right     	 |	 15.26%		|
+| Bumpy road            	| Bumpy road                 	 |	 15.27%		|
+| Slippery road         	| Slippery road                	 |	 15.23%		|
+| Road work             	| Road work                  	 |	 15.24%		|
+| Pedestrians             	| Pedestrians                  	 |	 15.26% 	|
+| Speed limit 60km/h        | Speed limit 60km/h             | 	 15.24%		|
 
 
 The model was able to correctly guess 10 of the 10 traffic signs, which gives an accuracy of 100%.
 
 The code for making predictions on my final model is located in the 31th cell of the Ipython notebook, it uses an evaluation model returned from create_softmax_evaluation function defined in cell 6. 
 
-For all of the images, the model is relatively sure when comparing the probability of the predicted label with the rest of the labels.
+For all of the images, the model is relatively sure (15% vs 2%) when comparing the probability of the predicted label with the rest of the labels.
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-
-
+TODO later as I spent most my available time on the models and tests
