@@ -69,7 +69,7 @@ My final model consisted of 4 convolutional layers, and 3 fully connected networ
 | Fully connected		| 1600x400,  dropout probability: 40%              		|
 | tanh			        |								        		        |
 | Dropout       		| keep probability: 60%    		                        |
-| Fully connected		| 400x42, activation: tanh    	     			        |
+| Fully connected		| 400x42                    	     			        |
 | tanh			        |								        		        |
 
 #### Tensorflow data format
