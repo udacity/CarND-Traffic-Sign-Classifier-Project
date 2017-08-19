@@ -56,29 +56,43 @@ def show_image_list(img_list, img_labels, title, cols=2, fig_size=(15, 15), show
     Utility function to show us a list of traffic sign images
     """
     img_count = len(img_list)
-    rows = img_count / cols
+    rows = img_count // cols
     cmap = None
-    plt.figure(figsize=fig_size)
+
+    fig, axes = plt.subplots(rows, cols, figsize=fig_size)
+    
     for i in range(0, img_count):
-        img_name = img_labels[i]
-        
-        plt.subplot(rows, cols, i+1)
+        img_name = img_labels[i]     
         img = img_list[i]
         if len(img.shape) < 3:
             cmap = "gray"
         
-        if not show_ticks:
-            plt.xticks([])
-            plt.yticks([])
+        if not show_ticks:            
+            axes[i].axis("off")
             
-        plt.imshow(img, cmap=cmap)
+        axes[i].imshow(img, cmap=cmap)
     
-    #plt.title(title)
-    plt.tight_layout()
-    plt.subplots_adjust(hspace=.5)
+    fig.suptitle(title, fontsize=12, fontweight='bold', y = 0.6)
+    fig.tight_layout()
     plt.show()
+    
+    return
 
 
+def show_random_dataset_images(group_label, imgs, to_show=5):
+    """
+    This function takes a DataFrame of items group by labels as well as a set of images and randomly selects to_show images to display
+    """
+    for (lid, lbl), group in group_label:
+        #print("[{0}] : {1}".format(lid, lbl))    
+        rand_idx = np.random.randint(0, high=group['img_id'].size, size=to_show, dtype='int')
+        selected_rows = group.iloc[rand_idx]
+
+        selected_img = list(map(lambda img_id: imgs[img_id], selected_rows['img_id']))
+        selected_labels = list(map(lambda label_id: label_id, selected_rows['label_id']))
+        show_image_list(selected_img, selected_labels, "{0}: {1}".format(lid, lbl), cols=to_show, fig_size=(7, 7), show_ticks=False)
+    
+    
 ########################################################################################################################
 ######                                        Data manipulation functions                                         ######
 ########################################################################################################################
@@ -104,20 +118,6 @@ def group_img_id_to_lb_count(img_id_to_lb):
     return pd.pivot_table(img_id_to_lb,index=["label_id","label_name"],values=["img_id"], aggfunc='count')
 
 
-
-    
-def show_random_dataset_images(group_label, imgs, to_show=5):
-    """
-    This function takes a DataFrame of items group by labels as well as a set of images and randomly selects to_show images to display
-    """
-    for (lid, lbl), group in group_label:
-        print("[{0}] : {1}".format(lid, lbl))    
-        rand_idx = np.random.randint(0, high=group['img_id'].size, size=to_show, dtype='int')
-        selected_rows = group.iloc[rand_idx]
-
-        selected_img = list(map(lambda img_id: imgs[img_id], selected_rows['img_id']))
-        selected_labels = list(map(lambda label_id: label_id, selected_rows['label_id']))
-        show_image_list(selected_img, selected_labels, lbl, cols=to_show, fig_size=(5, 5), show_ticks=False)
         
 
 def create_sample_set(grouped_imgs_by_label, imgs, labels, pct=0.4):
@@ -170,7 +170,7 @@ def augment_imgs(imgs, p):
     Performs a set of augmentations with with a probability p
     """
     augs =  iaa.SomeOf((2, 4),
-           [
+          [
               iaa.Crop(px=(0, 10)), # crop images from each side by 0 to 16px (randomly chosen)
               iaa.Multiply((1.0, 1.5)), # change brightness of images (100-150% of original value))
               iaa.Sharpen(alpha=(0.7, 1.0), lightness=(1.05, 1.5)), # sharpen images
