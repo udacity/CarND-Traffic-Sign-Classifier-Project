@@ -64,8 +64,9 @@ def show_image_list(img_list, img_labels, title, cols=2, fig_size=(15, 15), show
     for i in range(0, img_count):
         img_name = img_labels[i]     
         img = img_list[i]
-        if len(img.shape) < 3:
+        if len(img.shape) < 3 or img.shape[-1] < 3:
             cmap = "gray"
+            img = np.reshape(img, (img.shape[0], img.shape[1]))
         
         if not show_ticks:            
             axes[i].axis("off")
@@ -169,15 +170,13 @@ def augment_imgs(imgs, p):
     """
     Performs a set of augmentations with with a probability p
     """
-    augs =  iaa.SomeOf((2, 4),
+    augs =  iaa.SomeOf((3, 5),
           [
-              iaa.Crop(px=(0, 10)), # crop images from each side by 0 to 16px (randomly chosen)
-              iaa.Multiply((1.0, 1.5)), # change brightness of images (100-150% of original value))
-              iaa.Sharpen(alpha=(0.7, 1.0), lightness=(1.05, 1.5)), # sharpen images
+              iaa.Crop(px=(0, 10)), # crop images from each side by 0 to 10px (randomly chosen)
               iaa.Affine(scale={"x": (0.8, 1.2), "y": (0.8, 1.2)}),
               iaa.Affine(translate_percent={"x": (-0.2, 0.2), "y": (-0.2, 0.2)}),
-              iaa.Affine(rotate=(-30, 30)), # rotate by -45 to +45 degrees)
-              iaa.Affine(shear=(-10, 10)) # shear by -16 to +16 degrees
+              iaa.Affine(rotate=(-45, 45)), # rotate by -45 to +45 degrees)
+              iaa.Affine(shear=(-10, 10)) # shear by -10 to +10 degrees
           ])
 
     
