@@ -254,7 +254,7 @@ This activation map is also hard to decipher... But it seems the network reacts 
 
 ## Conclusion
 
-We covered how deep learning can be used to classify traffic signs with high accuracy, employing a variety of pre-processing  and regularization techniques (e.g. dropout), and trying different model architectures. We built highly configurable code and developed a flexible way of evaluating multiple architectures. Our model reached 98% accuracy on the test set which is close to the state of the art in this domain.
+We covered how deep learning can be used to classify traffic signs with high accuracy, employing a variety of pre-processing  and regularization techniques (e.g. dropout), and trying different model architectures. We built highly configurable code and developed a flexible way of evaluating multiple architectures. Our model reached close to 98% accuracy on the test set which is close to the state of the art in this domain.
 
 Personally, I thoroughly enjoyed this project and gained practical experience using Tensorflow, matplotlib and investigating artificial neural network architectures. Moreover, I delved into some seminal papers in this field, which reinforced my understanding and more importantly refined my intuition about deep learning. 
 
