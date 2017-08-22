@@ -224,8 +224,7 @@ print("[Grayscale Normalised] Predictional accuracy on new images: {0}%".format(
 [Grayscale Normalised] Predictional accuracy on new images: 100.0%
 ```
 
-We also show the top 5 SoftMax probabilities computed for each model, with the green bar showing the ground truth. We can clearly see that the model is generally very confident about its top 1 prediction. But for the last image (_vehicles over 3.5 metric tons prohibited_) the top 1 and top predictions were very close. They are quite similar to a certain extent. More interesting is that on this last image scores for _No Entry_ and  _No Passing_ (top 3 and 4 respectively) are quite high compared to other images.
-Otherwise, our model performs quite well!!
+We also show the top 5 SoftMax probabilities computed for each model, with the green bar showing the ground truth. We can clearly see that our model quite confident in its predictions. In the worst case (last image), the 2 most likely prediction has a probability of around 10<sup>-3</sup>. In fact our model struggles most on the last image, which I believe is actually a design a not even a real picture. Overall, we have developed a strong model!
 
 ![Top 5 Softmax Prediction From Model](writeup_material/new_images_top5_softmax_probabilities.png)
 
