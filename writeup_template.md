@@ -149,7 +149,7 @@ We identified 269 images that are model could not identify correctly. We display
 ![10 Images Where The Grayscale CLAHE Normalised Model Was Wrong](writeup_material/grayscale_eq_10_bad_predictions.png)
 
 
-Some of the images are very blurry, despite our histogram equalization, while others seem distored. We probably don't have enough examples of such images in our test set for our model's predictions to improve. Additionally, while 97.71% test accuracy is very good, we still one more ace up our sleeve: data augmentation. 
+Some of the images are very blurry, despite our histogram equalization, while others seem distored. We probably don't have enough examples of such images in our test set for our model's predictions to improve. Additionally, while 97.75% test accuracy is very good, we still one more ace up our sleeve: data augmentation. 
 
 ## Data Augmentation
 
