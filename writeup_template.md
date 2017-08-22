@@ -126,20 +126,21 @@ The graph above shows that the model is _smooth_, unlike some of the graphs high
 
 [Histogram Equalization](https://en.wikipedia.org/wiki/Histogram_equalization) is a computer vision technique used to increase the [contrast](https://en.wikipedia.org/wiki/Contrast_(vision)) in images. As some of our images suffer from low contrast (blurry, dark), we will improve visibility by applying OpenCV's [Contrast Limiting Adaptive Histogram Equalization](http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_histograms/py_histogram_equalization/py_histogram_equalization.html) (aka CLAHE) function.
 
-We once again try various configurations, and find the best results, with **test accuracy of 97.71%**, on the 3x3 model using the following dropout values: _p-conv=0.6_, _p-fc=0.5_ .
+We once again try various configurations, and find the best results, with **test accuracy of 97.75%**, on the 3x3 model using the following dropout values: _p-conv=0.6_, _p-fc=0.5_ .
 ```
-Training EdLeNet_Grayscale_CLAHE_Norm_3x3_Dropout_0.50 [epochs=220, batch_size=512]...
+Training EdLeNet_Grayscale_CLAHE_Norm_Take-2_3x3_Dropout_0.50 [epochs=500, batch_size=512]...
 
-[1]	total=5.337s | train: time=3.282s, loss=3.6210, acc=0.0972 | val: time=2.055s, loss=3.6403, acc=0.0957
-[10]	total=5.150s | train: time=3.111s, loss=0.6255, acc=0.8126 | val: time=2.039s, loss=0.6721, acc=0.7848
+[1]	total=5.194s | train: time=3.137s, loss=3.6254, acc=0.0662 | val: time=2.058s, loss=3.6405, acc=0.0655
+[10]	total=5.155s | train: time=3.115s, loss=0.8645, acc=0.7121 | val: time=2.040s, loss=0.9159, acc=0.6819
 ...
-[200]	total=5.146s | train: time=3.108s, loss=0.0009, acc=0.9999 | val: time=2.039s, loss=0.0739, acc=0.9848
-[210]	total=5.144s | train: time=3.103s, loss=0.0007, acc=0.9998 | val: time=2.041s, loss=0.0772, acc=0.9834
-[220]	total=5.140s | train: time=3.103s, loss=0.0006, acc=0.9999 | val: time=2.038s, loss=0.0684, acc=0.9846
-Model ./models/EdLeNet_Grayscale_CLAHE_Norm_3x3_Dropout_0.50.chkpt saved
-[EdLeNet_Grayscale_CLAHE_Norm_3x3_Dropout_0.50 - Test Set]	time=0.675s, loss=0.0923, acc=0.9771
+[480]	total=5.149s | train: time=3.106s, loss=0.0009, acc=0.9998 | val: time=2.042s, loss=0.0355, acc=0.9884
+[490]	total=5.148s | train: time=3.106s, loss=0.0007, acc=0.9998 | val: time=2.042s, loss=0.0390, acc=0.9884
+[500]	total=5.148s | train: time=3.104s, loss=0.0006, acc=0.9999 | val: time=2.044s, loss=0.0420, acc=0.9862
+Model ./models/EdLeNet_Grayscale_CLAHE_Norm_Take-2_3x3_Dropout_0.50.chkpt saved
+[EdLeNet_Grayscale_CLAHE_Norm_Take-2_3x3_Dropout_0.50 - Test Set]	time=0.675s, loss=0.0890, acc=0.9775
 ```
-The graphs below also show the models performance on training and validation sets over 220 epochs. The 5x5 variant is also very close with a 97.43% accuracy.
+
+We show graphs of previous runs where we tested the 5x5 model as well, over 220 epochs. We can see a much smoother curve here, reinforcing our intuition that the model we have is more stable. 
 
 ![Smooth Performance on Grayscale CLAHE and Normalised Images (p-conv=0.75, p-fc=0.5) - 3x3 and 5x5 Models](writeup_material/grayscale_eq_norm_dropout_0.50_metrics_graphs.png)
 
@@ -214,19 +215,41 @@ The first step we took was to apply the same CLAHE to those new images, resultin
 
 
 
-We achieve 100% accuracy with the images. 
+We achieve 100% accuracy with the new images. 
 
 ```
-[SHOW CODE TO PREDICT AND OUTPUT PLUS CALCULATIONS TO GET ACCURACY]
+new_img_grayscale_norm_pred_acc = np.sum(new_img_lbs == preds) / len(preds)
+print("[Grayscale Normalised] Predictional accuracy on new images: {0}%".format(new_img_grayscale_norm_pred_acc * 100))
+...
+[Grayscale Normalised] Predictional accuracy on new images: 100.0%
 ```
 
-We also show the top 5 SoftMax probabilities computed for each model, with the green bar showing the ground truth. We can see that our model is quite confident in its predictions for each new image, with the "worse" 2nd prediction only scoring 10<sup>-10</sup>.
+We also show the top 5 SoftMax probabilities computed for each model, with the green bar showing the ground truth. We can clearly see that the model is generally very confident about its top 1 prediction. But for the last image (_vehicles over 3.5 metric tons prohibited_) the top 1 and top predictions were very close. They are quite similar to a certain extent. More interesting is that on this last image scores for _No Entry_ and  _No Passing_ (top 3 and 4 respectively) are quite high compared to other images.
+Otherwise, our model performs quite well!!
 
-[SHOW TOP 5 SOFTMAX PROBS DIAGRAM]
+![Top 5 Softmax Prediction From Model](writeup_material/new_images_top5_softmax_probabilities.png)
 
 ## Visualising Our Activation Maps
 
+We also visualise the activation maps produced by the model for the first image (speed limit 120 km/h), at multiple convolutional layers:
 
+### Layer 1
+
+![Activation Maps At Conv Layer 1](writeup_material/new_image_1_feature_map_conv_1.png)
+
+We can see that the network is focusing a lot on the edges of the circle and somehow on the _120_. The background is ignored.
+
+### Layer 2
+
+![Activation Maps At Conv Layer 2](writeup_material/new_image_1_feature_map_conv_2.png)
+
+It is rather hard to determine what the network is focusing on in layer 1, but it seems to "activate" around the edges of the circle and in the middle, where our _120_ is printed.
+
+### Layer 3
+
+![Activation Maps At Conv Layer 3](writeup_material/new_image_1_feature_map_conv_3.png)
+
+This activation map is also hard to decipher... But it seems the network reacts to stimuli on the _edges_ and in the middle once again.
 
 
 ## Conclusion
