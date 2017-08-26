@@ -170,9 +170,9 @@ def augment_imgs(imgs, p):
     """
     Performs a set of augmentations with with a probability p
     """
-    augs =  iaa.SomeOf((3, 5),
+    augs =  iaa.SomeOf((1, 2),
           [
-              iaa.Crop(px=(0, 10)), # crop images from each side by 0 to 10px (randomly chosen)
+              iaa.Crop(px=(0, 4)), # crop images from each side by 0 to 4px (randomly chosen)
               iaa.Affine(scale={"x": (0.8, 1.2), "y": (0.8, 1.2)}),
               iaa.Affine(translate_percent={"x": (-0.2, 0.2), "y": (-0.2, 0.2)}),
               iaa.Affine(rotate=(-45, 45)), # rotate by -45 to +45 degrees)
