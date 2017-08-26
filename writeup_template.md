@@ -209,13 +209,24 @@ The ground truth for the images is as follows:
  'Vehicles over 3.5 metric tons prohibited']
 ```
 
+The Images were chosen because of the following:
+* They represent different traffic signs that we currently classify
+* They vary in shape and color
+* They are under different lighting conditions (the 4th one has sunlight reflection)
+* They are under different orientations (the 3rd one is slanted)
+* They have different background
+* The last image is actually a design, not a real picture, and we wanted to test the model against it to see if it recognizes it
+* Some of them are in under-represented classes
+
+
 The first step we took was to apply the same CLAHE to those new images, resulting in the following:
 
 ![New Images Grayscale Equalized](writeup_material/new_images_grayscale_equalized.png)
 
 
 
-We achieve 100% accuracy with the new images. 
+
+We achieve perfect accuracy of 100% on the new images. On the original test set, we achieved 97.75% accuracy. We could explore blurring our new images or modifying contrast to see how the model handles those changes in the future.
 
 ```
 new_img_grayscale_norm_pred_acc = np.sum(new_img_lbs == preds) / len(preds)
