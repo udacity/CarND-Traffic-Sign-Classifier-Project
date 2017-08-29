@@ -1,0 +1,433 @@
+
+Training numer of images: 556784
+Validation number of images: 4410
+Augment data strategy: Maximum augment training data (15)
+learning rate =  0.001
+EPOCHS =  60
+BATCH_SIZE =  256
+Drop out = 0.5
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 1 ...
+Training time: 2.79 mins
+Included validation time: 3.52 mins
+Tranning Accuracy = 0.945
+Validation Accuracy = 0.913
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 2 ...
+Training time: 2.77 mins
+Included validation time: 3.50 mins
+Tranning Accuracy = 0.970
+Validation Accuracy = 0.943
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 3 ...
+Training time: 2.79 mins
+Included validation time: 3.51 mins
+Tranning Accuracy = 0.979
+Validation Accuracy = 0.948
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 4 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.984
+Validation Accuracy = 0.957
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 5 ...
+Training time: 2.77 mins
+Included validation time: 3.50 mins
+Tranning Accuracy = 0.985
+Validation Accuracy = 0.960
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 6 ...
+Training time: 2.77 mins
+Included validation time: 3.50 mins
+Tranning Accuracy = 0.988
+Validation Accuracy = 0.953
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 7 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.989
+Validation Accuracy = 0.973
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 8 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.991
+Validation Accuracy = 0.956
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 9 ...
+Training time: 2.76 mins
+Included validation time: 3.48 mins
+Tranning Accuracy = 0.992
+Validation Accuracy = 0.976
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 10 ...
+Training time: 2.76 mins
+Included validation time: 3.48 mins
+Tranning Accuracy = 0.992
+Validation Accuracy = 0.973
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 11 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.993
+Validation Accuracy = 0.975
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 12 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.993
+Validation Accuracy = 0.972
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 13 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.994
+Validation Accuracy = 0.977
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 14 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.995
+Validation Accuracy = 0.975
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 15 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.994
+Validation Accuracy = 0.968
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 16 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.995
+Validation Accuracy = 0.975
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 17 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.995
+Validation Accuracy = 0.982
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 18 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.995
+Validation Accuracy = 0.976
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 19 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.995
+Validation Accuracy = 0.967
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 20 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.995
+Validation Accuracy = 0.971
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 21 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.995
+Validation Accuracy = 0.973
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 22 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.995
+Validation Accuracy = 0.982
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 23 ...
+Training time: 2.76 mins
+Included validation time: 3.48 mins
+Tranning Accuracy = 0.996
+Validation Accuracy = 0.978
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 24 ...
+Training time: 2.76 mins
+Included validation time: 3.48 mins
+Tranning Accuracy = 0.996
+Validation Accuracy = 0.969
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 25 ...
+Training time: 2.76 mins
+Included validation time: 3.48 mins
+Tranning Accuracy = 0.996
+Validation Accuracy = 0.977
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 26 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.996
+Validation Accuracy = 0.976
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 27 ...
+Training time: 2.77 mins
+Included validation time: 3.50 mins
+Tranning Accuracy = 0.995
+Validation Accuracy = 0.965
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 28 ...
+Training time: 2.76 mins
+Included validation time: 3.48 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.972
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 29 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.996
+Validation Accuracy = 0.977
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 30 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.996
+Validation Accuracy = 0.980
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 31 ...
+Training time: 2.76 mins
+Included validation time: 3.48 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.982
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 32 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.977
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 33 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.968
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 34 ...
+Training time: 2.76 mins
+Included validation time: 3.48 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.980
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 35 ...
+Training time: 2.76 mins
+Included validation time: 3.48 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.976
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 36 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.978
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 37 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.995
+Validation Accuracy = 0.972
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 38 ...
+Training time: 2.76 mins
+Included validation time: 3.48 mins
+Tranning Accuracy = 0.996
+Validation Accuracy = 0.973
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 39 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.979
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 40 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.994
+Validation Accuracy = 0.963
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 41 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.978
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 42 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.975
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 43 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.980
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 44 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.977
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 45 ...
+Training time: 2.77 mins
+Included validation time: 3.50 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.985
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 46 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.998
+Validation Accuracy = 0.985
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 47 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.977
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 48 ...
+Training time: 2.77 mins
+Included validation time: 3.50 mins
+Tranning Accuracy = 0.998
+Validation Accuracy = 0.983
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 49 ...
+Training time: 2.85 mins
+Included validation time: 3.58 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.969
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 50 ...
+Training time: 2.77 mins
+Included validation time: 3.50 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.982
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 51 ...
+Training time: 2.85 mins
+Included validation time: 3.58 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.978
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 52 ...
+Training time: 2.86 mins
+Included validation time: 3.58 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.979
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 53 ...
+Training time: 2.84 mins
+Included validation time: 3.57 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.980
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 54 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.972
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 55 ...
+Training time: 2.80 mins
+Included validation time: 3.60 mins
+Tranning Accuracy = 0.998
+Validation Accuracy = 0.982
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 56 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.996
+Validation Accuracy = 0.971
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 57 ...
+Training time: 2.77 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.973
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 58 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.976
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 59 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.974
+
+-|---------|---------|---------|---------|---------|---------|---------|---------|---------|-----
+EPOCH 60 ...
+Training time: 2.76 mins
+Included validation time: 3.49 mins
+Tranning Accuracy = 0.997
+Validation Accuracy = 0.973
+
+Duration time: 209.89 mins
+Model saved
+
+Test Set Accuracy = 0.961
