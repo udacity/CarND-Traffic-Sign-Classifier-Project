@@ -1,0 +1,2 @@
+model_checkpoint_path: "traffic-signs"
+all_model_checkpoint_paths: "traffic-signs"
