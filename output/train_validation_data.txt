@@ -1,0 +1,128 @@
+* Parameter (Common)
+BATCH_SIZE = 128
+
+=====================================================
+** Batch size based test
+
+BATCH_SIZE = 60 #128
+
+EPOCH 250 ...
+Validation Accuracy = 0.937
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.930
+
+----------------------
+BATCH_SIZE = 200 #128
+
+EPOCH 250 ...
+Validation Accuracy = 0.938
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.927
+
+=====================================================
+** Learning rate based test
+
+rate = 0.001
+EPOCH 250 ...
+Validation Accuracy = 0.949
+Test Accuracy = 0.933
+
+----------------------
+rate = 0.005
+EPOCH 250 ...
+Validation Accuracy = 0.938
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.919
+
+----------------------
+rate = 0.01
+EPOCH 250 ...
+Validation Accuracy = 0.083
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.078
+
+=====================================================
+** EPOCH based test
+
+----------------------------
+EPOCH 5 ...
+Validation Accuracy = 0.894
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.882
+
+----------------------------
+EPOCH 20 ...
+Validation Accuracy = 0.926
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.908
+
+----------------------------
+EPOCH 50 ...
+Validation Accuracy = 0.942
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.922
+
+----------------------------
+EPOCH 70 ...
+Validation Accuracy = 0.929
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.909
+
+----------------------------
+EPOCH 100 ...
+Validation Accuracy = 0.947
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.925
+
+----------------------------
+EPOCH 100 ...
+EPOCH 150 ...
+Validation Accuracy = 0.938
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.930
+
+----------------------------
+EPOCH 200 ...
+Validation Accuracy = 0.946
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.930
+
+----------------------------
+EPOCH 250 ...
+Validation Accuracy = 0.949
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.933
+
+----------------------------
+EPOCH 300 ...
+Validation Accuracy = 0.950
+
+Model saved
+INFO:tensorflow:Restoring parameters from ./lenet
+Test Accuracy = 0.929
+
+
