@@ -211,22 +211,82 @@ It could be that the class 0 and class 32 images are under fitted to improve the
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 8th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image(**Speed limit (20km/h)**), the model predicted <span style="color:red">wrongly</span>. The top five soft max probabilities were as follows.
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| .51         			| Speed limit (70km/h)   						| 
+| .49     				| Turn right ahead	                    		|
+| .0007					| Speed limit (30km/h)							|
+| .00005	   			| General caution					 			|
+| .00000005			    | Speed limit (100km/h)          				|
 
 
-For the second image ... 
+For the second image(**Right-of-way at the next intersection**), the model predicted correctly. The tope five soft max probabilities were as follows.
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .99         			| Right-of-way at the next intersection     	| 
+| .00001   				| Beware of ice/snow	                  		|
+| .00000000001			| Pedestrians							        |
+| .0000000000005		| Children crossing					 			|
+| .0000000000000008     | Roundabout mandatory          				|
 
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+For the third image(**Yield**), the model predicted correctly. The tope five soft max probabilities were as follows.
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0         			| Yield     	                                | 
+| .0       				| Speed limit (20km/h)	                  		|
+| .0	        		| Speed limit (30km/h)					        |
+| .0		            | Speed limit (50km/h)					 		|
+| .0                    | Speed limit (60km/h)          				|
+
+For the fourth image(**No entry**), the model predicted correctly. The tope five soft max probabilities were as follows.
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0         			| No entry     	                                | 
+| .0       				| Turn right ahead	                       		|
+| .0	        		| Turn left ahead				                |
+| .0		            | Roundabout mandatory					 		|
+| .0                    | Slippery road          				        |
+
+For the fifth image(**Road narrows on the right**), the model predicted correctly. The tope five soft max probabilities were as follows.
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0         			| Road narrows on the right                     | 
+| .0       				| Traffic signals	                       		|
+| .0	        		| Pedestrians				                    |
+| .0		            | Speed limit (70km/h)					 		|
+| .0                    | General caution        				        |
+
+For the sixth image(**End of all speed and passing limits**), the model predicted <span style="color:red">wrongly</span>. The tope five soft max probabilities were as follows.
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0         			| Speed limit (30km/h)                          | 
+| .0       				| Roundabout mandatory	              		    |
+| .0	        		| Speed limit (50km/h)		                    |
+| .0		            | Speed limit (60km/h)					 		|
+| .0                    | Stop      				                    |
+
+For the seventh image(**Keep left**), the model predicted wrongly. The tope five soft max probabilities were as follows.
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0         			| Keep left                                     | 
+| .0       				| Turn right ahead	                  		    |
+| .0	        		| Speed limit (50km/h)		                    |
+| .0		            | Speed limit (30km/h)					 		|
+| .0                    | Stop      				                    |
+
+For the eigth image(**Roundabout mandatory**), the model predicted wrongly. The tope five soft max probabilities were as follows.
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0         			| Keep left                                     | 
+| .0       				| Speed limit (30km/h)	               		    |
+| .0	        		| Priority road		                            |
+| .0		            | Speed limit (20km/h)					 		|
+| .0                    | Speed limit (50km/h)    
+
+
 
 
