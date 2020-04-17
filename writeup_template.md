@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
+[image5]: ./examples/input-grayscale.JPG "Input-grayscale"
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
@@ -73,7 +73,7 @@ I augmented the dataset such that each class contained the same number of images
 
 Here is an example of an original image and an augmented image:
 
-![alt text][image3]
+![alt text][image5]
 
 The difference between the original data set and the augmented data set is the following ... 
 
