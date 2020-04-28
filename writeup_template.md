@@ -69,6 +69,8 @@ Here is an example of a traffic sign image before and after grayscaling.
 
 As a last step, I normalized the image data because ...
 
+![Lecture_img_norm](examples/img_normalization_less11_slide25.JPG)
+
 I augmented the dataset such that each class contained the same number of images. To generate more data, I performed various random transformations to a subset of the training data and then appended the transformations until the class size reached the target. 
 
 Here is an example of an original image and an augmented image:
