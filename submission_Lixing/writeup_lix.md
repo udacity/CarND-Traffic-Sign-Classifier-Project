@@ -233,38 +233,30 @@ Here are five German traffic signs that I found on the web:
 - Image 4 also has the similar problem as image 2.
 - Image 5 is stretched in another way as image 2 and 4.
 
-##### b. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+##### b. Prediction Results
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Image | Supposed Class & Prediction   | Actual Css & Prediction | Probability |
+|:-----:|:------------------------------|:------------------------|:-----------:|
+| ![][image_test1_gray] | 11: Priority  | 11: Priority | 99.9% |
+| ![][image_test2_gray] | 18: Danger  | 40: Roundabout | 47.6% |
+| ![][image_test3_gray] | 25: Road work  | 25: Road work | 99.9% |
+| ![][image_test4_gray] | 26: Priority  | 28: Watch for children | 97.9% |
+| ![][image_test5_gray] | 1: Speed limit 30  | 25: Road work | 60.0%
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 2 of the 5 traffic signs, which gives an accuracy of 40%. This result is rather depressing, but acceptable - all distorted images, image 2, 4 and 5, fails the model. 
 
-##### c. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+Taking a closer look on the failed images, it's even hard for human to recognize them with our own eyes. These 3 pictures have something in common, which I consider would be the reason accounting to the failure in prediction:
+1. The image is not even in height and width.
+2. The feature part does not cover the major region.
+3. The features themselves are rather simple, with numbers and lines.
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
-
-##### d. Layer Visualization
+In contary, image 1 and 3 are very standardized ones, which resulted in a very strong and accurate prediction.
 
 #### 2) Potential Improvements
+
+- The input image shall be allowed with a larger scale, to allow more details to be covered.
+- The dataset shall include more distorted images, to cope with the randomness on real roadways.
+- A better designed architecture shall be introduced to avoid the **overfitting** problem.
